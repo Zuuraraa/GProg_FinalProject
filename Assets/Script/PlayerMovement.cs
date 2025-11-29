@@ -8,22 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public float slowMultiplier = 0.5f;
 
     [Header("References")]
-    public Tilemap slowTilemap; 
-    Player player;
-    Rigidbody2D rb;
-    Animator animator;
-    Statistics stats;
+    public Player player;
+    public Tilemap slowTilemap;
 
     Vector2 movement;
     float currentSpeed;
-
-    private void Awake()
-    {
-        player = GetComponent<Player>();
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        stats = player.stats;
-    }
 
     void Update()
     {
@@ -32,21 +21,13 @@ public class PlayerMovement : MonoBehaviour
 
         CalculateSpeed();
 
-        animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (movement.x > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (movement.x < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+        player.animator.SetFloat("Speed", movement.sqrMagnitude);
+        player.animator.SetInteger("DirectionX", movement.x >= 0 ? 1 : -1);
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement.normalized * currentSpeed * Time.fixedDeltaTime);
+        player.rb.MovePosition(player.rb.position + currentSpeed * Time.fixedDeltaTime * movement.normalized);
     }
 
     void CalculateSpeed()
@@ -56,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3Int playerCell = slowTilemap.WorldToCell(transform.position);
         speedMult *= slowTilemap.HasTile(playerCell) ? slowMultiplier : 1f;
 
-        currentSpeed = stats.baseMoveSpeed * speedMult;
+        currentSpeed = player.stats.baseMoveSpeed * speedMult;
     }
+
+   
 }

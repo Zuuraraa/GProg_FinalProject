@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PlayerStatistics", menuName = "Scriptable Objects/PlayerStatistics")]
 public class PlayerStatistics : Statistics
 {
     [Header("Progression")]

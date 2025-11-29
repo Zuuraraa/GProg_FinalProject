@@ -5,15 +5,20 @@ public class PlayerAttack : MonoBehaviour
     [Header("References")]
     public Player player;
     public GameObject anchor;
-    public Camera cam;
     public SpriteRenderer[] sprites;
 
     private Vector3 mousePos;
 
     void Update()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        FaceMouse();
+        CheckForClick();
         
+    }
+
+    void FaceMouse()
+    {
         Vector3 rotation = mousePos - anchor.transform.position;
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
@@ -26,11 +31,20 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+
     void FlipSprite(bool value)
     {
         foreach (SpriteRenderer s in sprites)
         {
             s.flipX = value;
+        }
+    }
+
+    void CheckForClick()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+
         }
     }
 }

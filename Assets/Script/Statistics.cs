@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public abstract class Statistics : ScriptableObject
-{
-    [Header("Hit Points")]
-    public int hpMax = 100;
-    public int hpCurrent = 100;
 
-    [Header("Base Speed")]
+[CreateAssetMenu(fileName = "Statistics", menuName = "Scriptable Objects/Statistics")]
+public class Statistics : ScriptableObject
+{
+    public int maxHP = 100;
     public float baseMoveSpeed = 10f;
 }

@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211098b18151a0c468cdabd11faad983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: b4b0b7e6c3a676843b8b96bfafd11289, type: 2}
   rb: {fileID: 6510801533969507893}
   animator: {fileID: 149744938797337447}
 --- !u!114 &7783983846402270250
@@ -245,10 +245,6 @@ MonoBehaviour:
   slowMultiplier: 0.5
   player: {fileID: 8747671311515705933}
   slowTilemap: {fileID: 0}
-  sprites:
-  - {fileID: 1603953128868813287}
-  - {fileID: 8251245586550572957}
-  - {fileID: 1847629140426550435}
 --- !u!114 &8095589810015965894
 MonoBehaviour:
   m_ObjectHideFlags: 0

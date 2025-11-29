@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     float currentSpeed;
 
+    private void Start()
+    {
+        Debug.Assert(slowTilemap != null, "Must add slowTilemap.");
+    }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");

@@ -1,35 +1,36 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Tilemaps; 
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Settings")]
-    public float moveSpeed = 5f;
-    public float slowMultiplier = 0.5f; 
+    public float slowMultiplier = 0.5f;
 
     [Header("References")]
-    public Rigidbody2D rb;
-    public Animator animator;
     public Tilemap slowTilemap; 
+    Player player;
+    Rigidbody2D rb;
+    Animator animator;
+    Statistics stats;
 
     Vector2 movement;
-    float currentSpeed; 
+    float currentSpeed;
+
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        stats = player.stats;
+    }
 
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        Vector3Int playerCell = slowTilemap.WorldToCell(transform.position);
-
-        if (slowTilemap.HasTile(playerCell))
-        {
-            currentSpeed = moveSpeed * slowMultiplier;
-        }
-        else
-        {
-            currentSpeed = moveSpeed;
-        }
+        CalculateSpeed();
 
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
@@ -46,5 +47,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement.normalized * currentSpeed * Time.fixedDeltaTime);
+    }
+
+    void CalculateSpeed()
+    {
+        float speedMult = 1f;
+
+        Vector3Int playerCell = slowTilemap.WorldToCell(transform.position);
+        speedMult *= slowTilemap.HasTile(playerCell) ? slowMultiplier : 1f;
+
+        currentSpeed = stats.baseMoveSpeed * speedMult;
     }
 }

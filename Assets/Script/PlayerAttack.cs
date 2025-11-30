@@ -12,7 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Weapons")]
     [SerializeField] Weapon[] weapons;
 
-    bool freezeAiming, isAttacking;
+    bool freezeAiming = false, isAttacking = false;
     Vector3 mousePos;
     [SerializeField] Weapon currentWeapon;
     
@@ -26,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (freezeAiming)
+        if (!freezeAiming)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             FaceMouse();
@@ -37,6 +37,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 freezeAiming = true;
             }
+            isAttacking = true;
             StartCoroutine(currentWeapon.PerformAttack(() => { 
                 freezeAiming = false;
                 isAttacking = false;

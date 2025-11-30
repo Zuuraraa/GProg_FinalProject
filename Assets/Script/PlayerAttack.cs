@@ -1,20 +1,45 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     [Header("References")]
-    public Player player;
-    public GameObject anchor;
-    public SpriteRenderer[] sprites;
+    [SerializeField] Player player;
+    [SerializeField] GameObject anchor;
+    [SerializeField] SpriteRenderer[] sprites;
 
-    private Vector3 mousePos;
+
+    [Header("Weapons")]
+    [SerializeField] Weapon[] weapons;
+
+    bool isAttacking;
+    Vector3 mousePos;
+    Weapon currentWeapon;
+    
+    private void Awake()
+    {
+        Debug.Assert(weapons.Length != 0, "Weapons cant be empty");
+        int size = weapons.Length;
+        for (int i = 0; i < size; i++)
+        {
+            weapons[i] = Instantiate(weapons[i]);
+        }
+        currentWeapon = weapons[2];
+    }
 
     void Update()
     {
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        FaceMouse();
-        CheckForClick();
-        
+        if (!isAttacking)
+        {
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            FaceMouse();
+            if (CheckAttack())
+            {
+                isAttacking = true;
+                StartCoroutine(currentWeapon.PerformAttack(() => { isAttacking = false; }));
+            }
+        }
+
     }
 
     void FaceMouse()
@@ -40,11 +65,16 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    void CheckForClick()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
 
+    public bool CheckAttack()
+    {
+        if (currentWeapon.canHoldFire)
+        {
+            return Input.GetMouseButton(0);
+        }
+        else
+        {
+            return Input.GetMouseButtonDown(0);
         }
     }
 }

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b7c8aba0417a0469025a7a0a1cf58e, type: 3}
+  m_Script: {fileID: 11500000, guid: d807c33b7a8ede943a41ee16903ef3c1, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: 
-  canHoldDown: 1
-  baseDamage: 10
-  damageMult: 1
+  canHoldFire: 1
+  damageByLevel: 040000000600000008000000
+  startSpeedByLevel: 030000000200000001000000
+  attackSpeedByLevel: 030000000200000001000000
+  endSpeedByLevel: 040000000300000001000000

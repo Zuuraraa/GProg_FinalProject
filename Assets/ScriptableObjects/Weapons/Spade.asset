@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb68d9ed10cd46145b4396e0573de64d, type: 3}
+  m_Script: {fileID: 11500000, guid: d807c33b7a8ede943a41ee16903ef3c1, type: 3}
   m_Name: Spade
   m_EditorClassIdentifier: 
-  canHoldDown: 0
-  baseDamage: 10
-  damageMult: 1
+  canHoldFire: 0
+  damageByLevel: 0a000000140000001e000000
+  startSpeedByLevel: 080000000600000004000000
+  attackSpeedByLevel: 080000000600000004000000
+  endSpeedByLevel: 080000000600000004000000

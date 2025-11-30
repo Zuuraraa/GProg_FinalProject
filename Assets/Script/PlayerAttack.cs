@@ -14,17 +14,14 @@ public class PlayerAttack : MonoBehaviour
 
     bool isAttacking;
     Vector3 mousePos;
-    Weapon currentWeapon;
+    [SerializeField] Weapon currentWeapon;
     
     private void Awake()
     {
-        Debug.Assert(weapons.Length != 0, "Weapons cant be empty");
-        int size = weapons.Length;
-        for (int i = 0; i < size; i++)
+        if (currentWeapon == null)
         {
-            weapons[i] = Instantiate(weapons[i]);
+            currentWeapon = weapons[0];
         }
-        currentWeapon = weapons[2];
     }
 
     void Update()
@@ -68,7 +65,7 @@ public class PlayerAttack : MonoBehaviour
 
     public bool CheckAttack()
     {
-        if (currentWeapon.canHoldFire)
+        if (currentWeapon.info.canHoldFire)
         {
             return Input.GetMouseButton(0);
         }

@@ -2,34 +2,59 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class Weapon : ScriptableObject
+public abstract class Weapon : MonoBehaviour
 {
-    public bool canHoldFire;
+    public WeaponData info;
+    public bool unlocked;
 
-    [Header("Upgrades")]
-    public float[] damageMultByLevel = { 10f, 15f, 20f };
-    public int[] startSpeedByLevel = { 4, 2 , 1 };
-    public int[] endSpeedByLevel = { 4, 2, 1 };
+    [Header("Level")]
+    public int damageLevel = 1;
+    public int speedLevel = 1;
 
-    [NonSerialized] public bool unlocked = false;
-    [NonSerialized] public int damageLevel = 1;
-    [NonSerialized] public int speedLevel = 1;
+    
+    protected int damage;
+    protected int startSpeed;
+    protected int attackSpeed;
+    protected int endSpeed;
+
+    private void Awake()
+    {
+        SetDamageLevel(damageLevel); 
+        SetSpeedLevel(speedLevel);
+    }
+
+    void SetDamageLevel(int level)
+    {
+        damageLevel = level;
+        damage = info.damageByLevel[level - 1];
+    }
+
+    void SetSpeedLevel(int level)
+    {
+        speedLevel = level;
+        startSpeed = info.startSpeedByLevel[speedLevel - 1];
+        attackSpeed = info.attackSpeedByLevel[speedLevel - 1];
+        endSpeed = info.endSpeedByLevel[speedLevel - 1];
+    }
 
     public IEnumerator PerformAttack(Action callback)
     {
-        yield return new WaitForSeconds(FramesToSeconds(startSpeedByLevel[speedLevel-1]));
-
-        Attack();
-        
-        yield return new WaitForSeconds(FramesToSeconds(endSpeedByLevel[speedLevel-1]));
-
+        yield return new WaitForSecondsRealtime(FramesToSeconds(startSpeed));
+        yield return StartCoroutine(AttackProcess());
+        yield return new WaitForSecondsRealtime(FramesToSeconds(endSpeed));
         callback();
     }
 
-    protected abstract void Attack();
+    protected abstract IEnumerator AttackProcess();
 
-    float FramesToSeconds(int frames)
+
+    protected float FramesToSeconds(int frames)
     {
-        return frames * Time.deltaTime;
+        return frames * Time.fixedDeltaTime;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }

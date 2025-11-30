@@ -10,14 +10,13 @@ public abstract class Weapon : MonoBehaviour
     [Header("Level")]
     public int damageLevel = 1;
     public int speedLevel = 1;
-
     
-    protected int damage;
-    protected int startSpeed;
-    protected int attackSpeed;
-    protected int endSpeed;
+    protected int damage = 10;
+    protected int startSpeed = 4;
+    protected int attackSpeed = 4;
+    protected int endSpeed = 4;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         SetDamageLevel(damageLevel); 
         SetSpeedLevel(speedLevel);

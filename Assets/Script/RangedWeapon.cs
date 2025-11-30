@@ -8,6 +8,12 @@ public class RangedWeapon : Weapon
     public int poolSize = 120;
     [Header("References")]
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform attackPointer;
+
+
+    [Header("Special Weapon Stats")]
+    public float projectileSpeed = 10f;
+    public int projectileLifespan = 60;
 
 
     static GameObject[] projectilePool;
@@ -27,16 +33,14 @@ public class RangedWeapon : Weapon
 
     protected override IEnumerator AttackProcess()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-
-        Vector3 destination = ((mousePos - transform.position).normalized + transform.position) * attackSpeed;
         GameObject projectileObj = SpawnAmmo(transform.position);
+        Vector3 direction = (attackPointer.position - transform.position);
+        direction += new Vector3(Random.Range(-.1f, .1f), Random.Range(-.1f, .1f), 0);
 
         if (projectileObj != null)
         {
             Projectile projectile = projectileObj.GetComponent<Projectile>();
-            StartCoroutine(projectile.Travel(destination));
+            StartCoroutine(projectile.Travel(Vector3.Normalize(direction), projectileSpeed, FramesToSeconds(projectileLifespan)));
         }
         yield break;
     }

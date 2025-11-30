@@ -398,8 +398,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7080888303638426441}
   - {fileID: 8654479962520513106}
+  - {fileID: 7080888303638426441}
   m_Father: {fileID: 312077088683040423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8246352988839593623
@@ -637,9 +637,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
+      propertyPath: attackPointer
+      value: 
+      objectReference: {fileID: 7080888303638426441}
+    - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
+      propertyPath: projectileSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 1091494042028771538, guid: f9dcb789eb4d9aa459c65d4bc8a378b8, type: 3}
+    - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
+      propertyPath: projectileLifespan
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

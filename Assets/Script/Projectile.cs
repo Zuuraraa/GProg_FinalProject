@@ -6,16 +6,16 @@ public class Projectile : MonoBehaviour
 {
     public int damage;
 
-    public IEnumerator Travel(Vector3 destination)
+    public IEnumerator Travel(Vector3 direction, float speed, float lifespan)
     {
         Vector3 startPos = transform.position;
-        float percentComplete = 0f;
 
         //destination += startPos;
-        while (percentComplete < 1f)
+        while (lifespan > 0)
         {
-            percentComplete += Time.fixedDeltaTime;
-            transform.position = Vector3.Lerp(startPos, destination, percentComplete);
+            lifespan -= Time.deltaTime;
+            Debug.Log(lifespan);
+            transform.position += direction * speed * Time.deltaTime;
             yield return null;
         }
         gameObject.SetActive(false);

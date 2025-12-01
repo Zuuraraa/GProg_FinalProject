@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Tag
   layers:
   - Default
   - TransparentFX
@@ -11,10 +12,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - PlayerHitbox
+  - PlayerHurtbox
+  - EnemyHitbox
+  - EnemyHurtbox
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Object
     uniqueID: 4264321621
+    locked: 0
+  - name: Projectile
+    uniqueID: 2343473903
     locked: 0
   - name: Character
     uniqueID: 2393699621

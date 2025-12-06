@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b4b0b7e6c3a676843b8b96bfafd11289, type: 2}
+  currentHP: 0
   rb: {fileID: 6510801533969507893}
   animator: {fileID: 149744938797337447}
 --- !u!114 &7783983846402270250

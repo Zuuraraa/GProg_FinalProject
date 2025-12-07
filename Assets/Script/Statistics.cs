@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Statistics", menuName = "Scriptable Objects/Statistics")]
+[CreateAssetMenu(fileName = "Statistics", menuName = "Scriptable Objects/Statistics/Statistics")]
 public class Statistics : ScriptableObject
 {
     public int maxHP = 100;

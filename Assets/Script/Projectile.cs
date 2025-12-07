@@ -14,7 +14,6 @@ public class Projectile : MonoBehaviour
         while (lifespan > 0)
         {
             lifespan -= Time.deltaTime;
-            Debug.Log(lifespan);
             transform.position += direction * speed * Time.deltaTime;
             yield return null;
         }

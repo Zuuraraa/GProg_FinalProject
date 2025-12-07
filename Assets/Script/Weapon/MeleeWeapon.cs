@@ -17,4 +17,13 @@ public class MeleeWeapon : Weapon
         yield break;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(GetDamage());
+        }
+    }
 }

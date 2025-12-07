@@ -11,4 +11,10 @@ public class Enemy : Character
     {
         EnemyHandler.enemyList.Add(this);
     }
+
+    public override void OnDeath()
+    {
+        GameManager.SpawnXPOrb(transform.position + (Vector3) Random.insideUnitCircle * 0.1f, 1);
+        gameObject.SetActive(false);
+    }
 }

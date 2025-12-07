@@ -1,11 +1,11 @@
 using System.Collections;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RangedWeapon : Weapon
 {
 
-    public int poolSize = 120;
+    public int poolSize = 20;
     [Header("References")]
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform attackPointer;
@@ -16,18 +16,18 @@ public class RangedWeapon : Weapon
     public int projectileLifespan = 60;
 
 
-    static GameObject[] projectilePool;
+    static List<GameObject> projectilePool;
 
     protected override void Awake()
     {
         //base.Awake();
-        projectilePool = new GameObject[poolSize];
+        projectilePool = new List<GameObject>();
         
         for (int i = 0; i < poolSize; i++)
         {
             GameObject projectileObject = Instantiate(projectilePrefab);
             projectileObject.SetActive(false);
-            projectilePool[i] = projectileObject;
+            projectilePool.Add(projectileObject);
         }
     }
 

@@ -4,13 +4,14 @@ using UnityEngine.Rendering;
 
 public class XPOrb : MonoBehaviour
 {
-    [SerializeField] float speed = 5;
+    public float defaultSpeed = 5f;
     public int value = 1;
 
 
     CircleCollider2D detectionCollider;
     CapsuleCollider2D collisionCollider;
     Transform target = null;
+    float speed = 5f;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class XPOrb : MonoBehaviour
         if (target)
         {
             transform.position += speed * Time.deltaTime * (target.position - transform.position).normalized;
+            speed += Time.deltaTime * 2;
         }
     }
 
@@ -47,5 +49,11 @@ public class XPOrb : MonoBehaviour
     public void SetTarget(Transform _target)
     {
         target = _target;
+    }
+
+    public void Reset()
+    {
+        speed = defaultSpeed;
+        target = null;
     }
 }

@@ -26,13 +26,15 @@ public class PlayerMovement : MonoBehaviour
 
         CalculateSpeed();
 
-        player.animator.SetFloat("Speed", movement.sqrMagnitude);
-        player.animator.SetInteger("DirectionX", movement.x >= 0 ? 1 : -1);
+        Animator animator = player.GetAnimator();
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+        animator.SetInteger("DirectionX", movement.x >= 0 ? 1 : -1);
     }
 
     void FixedUpdate()
     {
-        player.rb.MovePosition(player.rb.position + currentSpeed * Time.fixedDeltaTime * movement.normalized);
+        Rigidbody2D rb = player.GetRB();
+        rb.MovePosition(rb.position + currentSpeed * Time.fixedDeltaTime * movement.normalized);
     }
 
     void CalculateSpeed()

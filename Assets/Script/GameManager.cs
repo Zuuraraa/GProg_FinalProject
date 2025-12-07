@@ -7,10 +7,9 @@ public class GameManager : MonoBehaviour
     [Header("XP Orbs")]
     public GameObject xpOrbPrefab;
     public int xpOrbCount = 100;
-    
+
     static List<GameObject> xpOrbs;
     static GameManager instance;
-
     private void Awake()
     {
         instance = this;
@@ -47,8 +46,7 @@ public class GameManager : MonoBehaviour
     {
         XPOrb xpOrbScript = xpOrb.GetComponent<XPOrb>();
         xpOrb.transform.position = position;
-        xpOrbScript.value = value;
-        xpOrbScript.SetTarget(null);
+        xpOrbScript.Reset();
         xpOrb.SetActive(true);
     }
 

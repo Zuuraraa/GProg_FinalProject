@@ -11,11 +11,12 @@ public class PlayerAttack : MonoBehaviour
 
     [Header("Weapons")]
     [SerializeField] Weapon[] weapons;
-
-    bool freezeAiming = false, isAttacking = false;
-    Vector3 mousePos;
     [SerializeField] Weapon currentWeapon;
-    
+
+    bool freezeAiming = false; 
+    bool isAttacking = false;
+    Vector3 mousePos;
+
     private void Awake()
     {
         if (currentWeapon == null)
@@ -53,7 +54,7 @@ public class PlayerAttack : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         anchor.transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        player.animator.SetInteger("Facing", rotation.x >= 0 ? 1 : -1);
+        player.GetAnimator().SetInteger("Facing", rotation.x >= 0 ? 1 : -1);
 
         if (rotation.x != 0)
         {

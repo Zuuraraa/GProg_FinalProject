@@ -18,15 +18,15 @@ public class EnemyHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        foreach (Enemy enemy in enemyList)
-        {
-            Vector2 targetDistance = (Vector2)enemy.target.position - enemy.rb.position;
-            if (targetDistance.magnitude > 1f)
-            {
-                enemy.rb.position += enemy.stats.baseMoveSpeed * Time.deltaTime * targetDistance.normalized;
-            }
-        }
-    }
+    //void Update()
+    //{
+    //    foreach (Enemy enemy in enemyList)
+    //    {
+    //        Vector2 targetDistance = (Vector2)enemy.target.position - enemy.rb.position;
+    //        if (targetDistance.magnitude > 1f)
+    //        {
+    //            enemy.rb.position += enemy.stats.baseMoveSpeed * Time.deltaTime * targetDistance.normalized;
+    //        }
+    //    }
+    //}
 }

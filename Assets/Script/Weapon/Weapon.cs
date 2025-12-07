@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
     public WeaponData info;
     public bool unlocked;
 
+
     [Header("Level")]
     public int damageLevel = 1;
     public int speedLevel = 1;
@@ -18,6 +19,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Awake()
     {
+            
         SetDamageLevel(damageLevel); 
         SetSpeedLevel(speedLevel);
     }

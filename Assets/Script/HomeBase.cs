@@ -1,13 +1,22 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class HomeBase : MonoBehaviour
+public class HomeBase : Character
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void OnCollisionEnter2D(Collision2D collision)
+    [SerializeField] TilemapRenderer graphics;
+    [SerializeField] HomeBaseTrackingGridController controller;
+    
+    BoxCollider2D boxCollider;
+    protected override void Awake()
     {
-        if (collision.collider.CompareTag("Enemy"))
-        {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        }
+        base.Awake();
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
+    public override void OnDeath()
+    {
+        graphics.enabled = false;
+        boxCollider.enabled = false;
+        gameObject.SetActive(false);
+        controller.RecalculateFLowField();
     }
 }

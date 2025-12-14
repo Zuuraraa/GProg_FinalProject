@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class Aggression : MonoBehaviour
+public class EnemyAggro : MonoBehaviour
 {
     public bool hasAggro = false;
 
@@ -12,5 +12,4 @@ public class Aggression : MonoBehaviour
             hasAggro = false;
         }
     }
-
 }

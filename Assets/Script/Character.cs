@@ -18,6 +18,16 @@ public abstract class Character : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    protected virtual void Start()
+    {
+        Reset();
+    }
+
+    public virtual void Reset()
+    {
+        currentHP = stats.maxHP;
+    }
+
     public void TakeDamage(int damage)
     {
         currentHP = Mathf.Clamp(currentHP - damage, 0, stats.maxHP);

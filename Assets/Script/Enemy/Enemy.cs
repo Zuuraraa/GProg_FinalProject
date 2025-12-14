@@ -1,15 +1,17 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Character
 {
-    [SerializeField] SpriteRenderer graphics;
-    public Aggression aggro;
+    public SpriteRenderer graphics;
+    public EnemyAggro aggro;
 
 
-    private void Start()
+    public override void Reset()
     {
         EnemyStatistics enemyStats = (EnemyStatistics) stats;
-        if (enemyStats == null) return;
+        if (enemyStats == null) { return; }
+        base.Reset();
         if (enemyStats.sprite)
         {
             graphics.sprite = enemyStats.sprite;

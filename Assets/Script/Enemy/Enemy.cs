@@ -3,16 +3,18 @@ using UnityEngine;
 public class Enemy : Character
 {
     [SerializeField] SpriteRenderer graphics;
-    [SerializeField] Aggression aggro;
+    public Aggression aggro;
+
 
     private void Start()
     {
         EnemyStatistics enemyStats = (EnemyStatistics) stats;
+        if (enemyStats == null) return;
         if (enemyStats.sprite)
         {
             graphics.sprite = enemyStats.sprite;
         }
-        //EnemyHandler.enemyList.Add(this);
+        aggro.hasAggro = false;
     }
 
     public override void OnDeath()
@@ -24,7 +26,6 @@ public class Enemy : Character
     protected override void OnDamage()
     {
         base.OnDamage();
-        aggro.enabled = true;
-        aggro.GainAggro();
+        aggro.hasAggro = true;
     }
 }

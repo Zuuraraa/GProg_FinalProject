@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 34425415249876260}
   - component: {fileID: 73340446930361964}
   - component: {fileID: 6280657402112830111}
-  m_Layer: 0
-  m_Name: House Hitbox
+  m_Layer: 12
+  m_Name: HomeBase
   m_TagString: Home Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,7 +14,7 @@ public abstract class GridController : MonoBehaviour
         curFlowField.CreateGrid();
     }
 
-    protected void RecalculateFLowField()
+    public void RecalculateFLowField()
     {
         InitializeFlowField();
 

@@ -7,9 +7,9 @@ public class HomeBaseTrackingGridController : GridController
 
     private void Start()
     {
-        Debug.Log("start home base");
         RecalculateFLowField();
     }
+
     protected override List<Cell> GetDestinationCells()
     {
         List<Cell> destinationCells = new List<Cell>();

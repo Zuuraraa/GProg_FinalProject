@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc89210a4aa45c43b9f37ab2173ca10, type: 3}
-  m_Name: Rat
+  m_Script: {fileID: 11500000, guid: 4a2f10492295c194fad87410232818b0, type: 3}
+  m_Name: HomeBaseStatistics
   m_EditorClassIdentifier: 
-  maxHP: 10
-  baseMoveSpeed: 5
-  sprite: {fileID: 21300000, guid: 1ca47247c835b4e4a8560dddb8de6695, type: 3}
-  xpDrop: 1
-  damage: 5
+  maxHP: 100
+  baseMoveSpeed: 0

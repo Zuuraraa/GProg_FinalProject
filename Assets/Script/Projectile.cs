@@ -22,12 +22,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Tag"))
+        if (collision.CompareTag("Enemy"))
         {
-            //Player player = collision.gameObject.GetComponent<Player>(); 
-            
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
     }
 
     public void SetDamage(int _damage)

@@ -5,7 +5,10 @@ using UnityEngine;
 public class Player : Character
 {
     public static Player instance;
-    int xp;
+
+    [Header("Progression")]
+    public int xp;
+    public int level;
 
     protected override void Awake()
     {

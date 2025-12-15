@@ -271,6 +271,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ed0aeeb8aa45c4da64cbdcac4681ae, type: 3}
+--- !u!114 &404553635 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7470104672232513730, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+  m_PrefabInstance: {fileID: 437905220177331886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c50de88f7576db4f9e92a1d269cf9a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   numUnitsPerSpawn: 10
-  moveSpeed: 5
+  moveSpeed: 3
   stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
   homeBaseTrackingGridController: {fileID: 1786100966}
   playerTrackingGridController: {fileID: 915076739}
@@ -1163,10 +1174,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7470104672232513730, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: projectileSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7783983846402270250, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: slowTilemap
       value: 
       objectReference: {fileID: 1448829304}
+    - target: {fileID: 7971122154629318220, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: currentWeapon
+      value: 
+      objectReference: {fileID: 404553635}
     - target: {fileID: 8095589810015965894, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: cam
       value: 

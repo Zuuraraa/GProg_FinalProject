@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // WAJIB ADA: Biar bisa akses Text UI
 
 public class WaveManager : MonoBehaviour
 {
     [Header("Dependencies")]
-    // Masukkan GameObject yang memegang script UnitController di sini
     [SerializeField] UnitController unitSpawner;
+    [SerializeField] TextMeshProUGUI waveTextUI; // Kabel ke Text UI
 
     [Header("Wave Configuration")]
     [SerializeField] float timeBetweenWaves = 5f;
@@ -25,7 +26,10 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        // Beri jeda sedikit saat game mulai sebelum wave pertama
+        // Pastikan text mati di awal
+        if (waveTextUI != null) waveTextUI.gameObject.SetActive(false);
+
+        // Delay sebelum wave 1 mulai
         Invoke(nameof(StartNextWave), 2f);
     }
 
@@ -33,7 +37,12 @@ public class WaveManager : MonoBehaviour
     {
         if (currentWaveIndex >= waves.Count)
         {
-            // Semua wave selesai
+            if (waveTextUI != null)
+            {
+                waveTextUI.text = "VICTORY!";
+                waveTextUI.gameObject.SetActive(true);
+            }
+            Debug.Log("All waves completed.");
             return; 
         }
 
@@ -44,9 +53,20 @@ public class WaveManager : MonoBehaviour
     {
         isSpawning = true;
         
+        // --- LOGIC UI TEXT ---
+        if (waveTextUI != null)
+        {
+            waveTextUI.text = wave.waveName; // Ubah tulisan jadi nama wave
+            waveTextUI.gameObject.SetActive(true); // Munculkan text
+            
+            // Text muncul selama 3 detik, lalu hilang
+            yield return new WaitForSeconds(3f);
+            waveTextUI.gameObject.SetActive(false); // Sembunyikan text
+        }
+        // ---------------------
+
         Debug.Log($"[Wave System] Memulai: {wave.waveName} - Jumlah Musuh: {wave.enemyCount}");
-        
-        // Loop spawn musuh sesuai jumlah di inspector
+
         for (int i = 0; i < wave.enemyCount; i++)
         {
             unitSpawner.SpawnSingleUnit();
@@ -56,7 +76,6 @@ public class WaveManager : MonoBehaviour
         isSpawning = false;
         currentWaveIndex++;
 
-        // Tunggu durasi istirahat sebelum lanjut wave berikutnya
         Invoke(nameof(StartNextWave), timeBetweenWaves);
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb0f8cbac852f44439e44c341ca699e7
+guid: a78e0486614e0e745bd2137b7fa9ca23
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8699300728217469627
-    second: inventory_example_with_slots_2_0
+      213: -6698935899654155598
+    second: Robust Padlock - GREY - 0016_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: inventory_example_with_slots_2_0
+      name: Robust Padlock - GREY - 0016_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 296
-        height: 93
+        x: 0
+        y: 0
+        width: 20
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bb203b3ebef1ab870800000000000000
-      internalID: 8699300728217469627
+      spriteID: 2b29000ba499803a0800000000000000
+      internalID: -6698935899654155598
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      inventory_example_with_slots_2_0: 8699300728217469627
+      Robust Padlock - GREY - 0016_0: -6698935899654155598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

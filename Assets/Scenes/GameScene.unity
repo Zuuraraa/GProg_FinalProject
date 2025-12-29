@@ -119,6 +119,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59972609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59972611}
+  - component: {fileID: 59972610}
+  m_Layer: 0
+  m_Name: _WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &59972610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59972609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4be20a0a86cae409f44407405f19bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitSpawner: {fileID: 2043692564}
+  timeBetweenWaves: 5
+  spawnInterval: 1
+  waves:
+  - waveName: 'Wave 1 '
+    enemyCount: 5
+  - waveName: Wave 2
+    enemyCount: 10
+  - waveName: Wave 3 - Boss
+    enemyCount: 15
+--- !u!4 &59972611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59972609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.579174, y: 14.950652, z: -0.0738691}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &217271775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1100,11 +1154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
-  numUnitsPerSpawn: 10
+  numUnitsPerSpawn: 0
   moveSpeed: 3
   stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
   homeBaseTrackingGridController: {fileID: 1786100966}
   playerTrackingGridController: {fileID: 915076739}
+  unitsInGame: []
 --- !u!4 &2043692565
 Transform:
   m_ObjectHideFlags: 0
@@ -1333,3 +1388,4 @@ SceneRoots:
   - {fileID: 1909699568}
   - {fileID: 437905220177331886}
   - {fileID: 2003438834}
+  - {fileID: 59972611}

@@ -13,7 +13,7 @@ public class UnitController : MonoBehaviour
     [SerializeField] GridController homeBaseTrackingGridController;
     [SerializeField] GridController playerTrackingGridController;
 
-    List<GameObject> unitsInGame;
+    public List<GameObject> unitsInGame;
     //GridController gridController;
 
     private void Awake()
@@ -78,5 +78,38 @@ public class UnitController : MonoBehaviour
             Destroy(go);
         }
         unitsInGame.Clear();
+    }
+
+    // Method baru untuk spawn satu unit, dipanggil oleh WaveManager
+    public void SpawnSingleUnit()
+    {
+        Vector2Int gridSize = homeBaseTrackingGridController.gridSize;
+        float nodeRadius = homeBaseTrackingGridController.cellRadius;
+        
+        // Hitung batas area spawn berdasarkan ukuran grid
+        Vector2 maxSpawnPos = new Vector2(
+            gridSize.x * nodeRadius * 2 + nodeRadius, 
+            gridSize.y * nodeRadius * 2 + nodeRadius
+        );
+
+        int colMask = LayerMask.GetMask("Obstacle", "EnemyHitbox");
+        Vector3 newPos;
+
+        GameObject newUnit = Instantiate(unitPrefab);
+        Enemy enemyScript = newUnit.GetComponent<Enemy>();
+        
+        enemyScript.stats = stats;
+        newUnit.transform.parent = transform;
+        
+        // Tambahkan ke list agar terhitung di FlowField
+        unitsInGame.Add(newUnit);
+
+        // Cari posisi spawn valid yang tidak menabrak obstacle
+        do
+        {
+            newPos = new Vector3(Random.Range(0, maxSpawnPos.x), Random.Range(0, maxSpawnPos.y), 0);
+            newUnit.transform.position = newPos;
+        }
+        while (Physics.OverlapSphere(newPos, 0.25f, colMask).Length > 0);
     }
 }

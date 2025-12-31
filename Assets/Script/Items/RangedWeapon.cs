@@ -31,7 +31,7 @@ public class RangedWeapon : Weapon
         }
     }
 
-    protected override IEnumerator AttackProcess()
+    protected override IEnumerator UseProcess()
     {
         GameObject projectileObj = SpawnAmmo(transform.position);
         Vector3 direction = (attackPointer.position - transform.position);

@@ -41,7 +41,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730573987936796134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -104,7 +104,7 @@ MonoBehaviour:
   plant: {fileID: 7858689566459966178}
   activeFrames: 5
   hurtbox: {fileID: 4073158125916036093}
-  sprite: {fileID: 5917081388020221285}
+  sprite: {fileID: 6642714415022407742}
 --- !u!58 &4073158125916036093
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730573987936796134}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -229,11 +229,6 @@ PrefabInstance:
       addedObject: {fileID: 7534194841661258805}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b83fa915bd30d41b0f0a2ed99bb641, type: 3}
---- !u!212 &5917081388020221285 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 9097909219581764910, guid: 03b83fa915bd30d41b0f0a2ed99bb641, type: 3}
-  m_PrefabInstance: {fileID: 3197544840710152267}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7858689566459966178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4706361190878761641, guid: 03b83fa915bd30d41b0f0a2ed99bb641, type: 3}

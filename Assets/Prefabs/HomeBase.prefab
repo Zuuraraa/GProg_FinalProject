@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: dc1323534fb15d54abd5f4c96774082a, type: 2}
   currentHP: 0
-  healthbar: {fileID: 5369548438345832272}
+  healthBar: {fileID: 5369548438345832272}
   graphics: {fileID: 0}
   controller: {fileID: 0}
 --- !u!1001 &7493696700859127632

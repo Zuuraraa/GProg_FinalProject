@@ -33,6 +33,11 @@ public class PlayerAction : MonoBehaviour
         itemsCount = items.Length;
     }
 
+    private void Start()
+    {
+        InventoryPanel.ActivateItemSlot(currentItemIdx);
+    }
+
     void Update()
     {
         if (!freezeAiming)
@@ -81,6 +86,7 @@ public class PlayerAction : MonoBehaviour
         currentItemIdx = idx;
         currentItem = items[currentItemIdx];
         currentItem.HandleSwapIn();
+        InventoryPanel.ActivateItemSlot(currentItemIdx);
     }
 
     int GetValidItemIndex(Order order)

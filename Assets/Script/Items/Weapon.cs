@@ -47,7 +47,7 @@ public abstract class Weapon : Item
     }
     public override void HandleSwapIn()
     {
-        throw new NotImplementedException();
+        
     }
 
     public IEnumerator Use(Action callback)

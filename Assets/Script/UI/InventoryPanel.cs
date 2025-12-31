@@ -28,7 +28,7 @@ public class InventoryPanel : MonoBehaviour
         int slotCount = instance.itemSlots.Count;
         for (int i = 0; i < slotCount; i++)
         {
-            instance.itemSlots[i].SetSlotActive(i == index);
+            instance.itemSlots[i].SetSlotSelected(i == index);
         }
     }
 }

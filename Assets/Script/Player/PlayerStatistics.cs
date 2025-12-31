@@ -4,4 +4,9 @@ using UnityEngine;
 public class PlayerStatistics : Statistics
 {
     public int[] xpTresholds = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+
+    [Header("Starting Items")]
+    public int startingItemIndex = 0;
+    public bool[] weaponUnlock = {true, false, false};
+    public int[] startingSeed = { 0, 0 };
 }

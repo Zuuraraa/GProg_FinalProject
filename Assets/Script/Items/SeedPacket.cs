@@ -25,6 +25,19 @@ public class SeedPacket : Item
     public override void HandleUse()
     {
         PlantingManager.CreatePlant(plantPrefab);
-        packetCount--;
+        IncrementPacketCount(-1);
+    }
+
+    public void IncrementPacketCount(int increment)
+    {
+        SetPacketCount(packetCount + increment);
+    }
+
+    public void SetPacketCount(int value)
+    {
+        packetCount = value;
+        itemSlot.SetCounterLabel(packetCount);
+        itemSlot.SetSlotActive(packetCount > 0);
+
     }
 }

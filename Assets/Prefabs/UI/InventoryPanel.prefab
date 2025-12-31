@@ -140,6 +140,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9159409087136957621}
     m_Modifications:
+    - target: {fileID: 1164636963100084737, guid: d7e47ce051ac4d245b169413483448d8, type: 3}
+      propertyPath: hasCounter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2623845343720776941, guid: d7e47ce051ac4d245b169413483448d8, type: 3}
       propertyPath: m_Name
       value: ItemSlot (5)
@@ -592,6 +596,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9159409087136957621}
     m_Modifications:
+    - target: {fileID: 1164636963100084737, guid: d7e47ce051ac4d245b169413483448d8, type: 3}
+      propertyPath: hasCounter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2623845343720776941, guid: d7e47ce051ac4d245b169413483448d8, type: 3}
       propertyPath: m_Name
       value: ItemSlot (4)

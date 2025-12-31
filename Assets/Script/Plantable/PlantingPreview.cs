@@ -7,7 +7,7 @@ public class PlantingPreview : MonoBehaviour
     public SpriteRenderer graphic;
     void Update()
     {
-        bool holdingSeedPacket = PlayerAction.currentItem.GetType() == typeof(SeedPacket);
+        bool holdingSeedPacket = PlayerAction.currentItem is SeedPacket;
         bool showHighlight = holdingSeedPacket && PlantingManager.canPlant;
         graphic.enabled = showHighlight;
         if (showHighlight)

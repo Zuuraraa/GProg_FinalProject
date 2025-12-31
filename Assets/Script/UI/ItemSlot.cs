@@ -4,10 +4,19 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
+
     [SerializeField] Image graphic;
     [SerializeField] Image background;
+    [SerializeField] TextMeshProUGUI counterLabel;
     [SerializeField] TextMeshProUGUI hotkeyLabel;
 
+    public bool hasCounter = false;
+
+
+    private void Awake()
+    {
+        counterLabel.enabled = hasCounter;
+    }
 
     public void SetHotkeyLabel(int keyLabel)
     {
@@ -31,8 +40,18 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
-    public void SetSlotActive(bool active)
+    public void SetSlotSelected(bool active)
     {
         background.color = active ? Color.yellow : Color.white;
+    }
+
+    public void SetSlotActive(bool active)
+    {
+        graphic.color = active ? Color.white: new Color(.2f, .2f, .2f, 1);
+    }
+
+    public void SetCounterLabel(int count)
+    {
+        counterLabel.text = count.ToString();
     }
 }

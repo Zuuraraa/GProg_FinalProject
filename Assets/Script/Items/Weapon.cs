@@ -73,4 +73,10 @@ public abstract class Weapon : Item
     {
         return damage;
     }
+
+    public void SetUnlocked(bool value)
+    {
+        unlocked = value;
+        itemSlot.SetSlotActive(value);
+    }
 }

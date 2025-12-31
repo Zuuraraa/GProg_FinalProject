@@ -21,16 +21,24 @@ public class PlayerAction : MonoBehaviour
     [Header("Items")]
     [SerializeField] Item[] items;
     [SerializeField] int currentItemIdx;
-    
+
     int itemsCount;
-    
+
 
     Vector3 mousePos;
 
     private void Awake()
     {
+        SetStartingGear();
+
+        //currentItemIdx = ((PlayerStatistics)(player.stats)).startingItemIndex;
         currentItem = items[currentItemIdx];
         itemsCount = items.Length;
+    }
+
+    private void Start()
+    {
+        InventoryPanel.ActivateItemSlot(currentItemIdx);
     }
 
     void Update()
@@ -45,6 +53,20 @@ public class PlayerAction : MonoBehaviour
         if (currentItem.ValidToSwapOut())
         {
             CheckItemSwap();
+        }
+    }
+
+
+    void SetStartingGear()
+    {
+        PlayerStatistics playerStats = (PlayerStatistics)player.stats;
+        for (int i = 0; i < playerStats.weaponUnlock.Length; i++)
+        {
+            ((Weapon)(items[i])).SetUnlocked(playerStats.weaponUnlock[i]);
+        }
+        for (int i = 0; i < playerStats.startingSeed.Length; i++)
+        {
+            ((SeedPacket)(items[i+3])).SetPacketCount(playerStats.startingSeed[i]);
         }
     }
 
@@ -69,7 +91,7 @@ public class PlayerAction : MonoBehaviour
         if (scrollDelta > 0)
         {
             SwapItem(GetValidItemIndex(Order.Next));
-        } 
+        }
         else if (scrollDelta < 0)
         {
             SwapItem(GetValidItemIndex(Order.Previous));
@@ -79,6 +101,7 @@ public class PlayerAction : MonoBehaviour
     void SwapItem(int idx)
     {
         currentItemIdx = idx;
+        InventoryPanel.ActivateItemSlot(currentItemIdx);
         currentItem = items[currentItemIdx];
         currentItem.HandleSwapIn();
     }

@@ -47,7 +47,7 @@ public abstract class Weapon : Item
     }
     public override void HandleSwapIn()
     {
-        throw new NotImplementedException();
+        
     }
 
     public IEnumerator Use(Action callback)
@@ -72,5 +72,11 @@ public abstract class Weapon : Item
     public int GetDamage()
     {
         return damage;
+    }
+
+    public void SetUnlocked(bool value)
+    {
+        unlocked = value;
+        itemSlot.SetSlotActive(value);
     }
 }

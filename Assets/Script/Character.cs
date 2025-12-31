@@ -6,11 +6,11 @@ public abstract class Character : MonoBehaviour
     
     public int currentHP;
 
-    Rigidbody2D rb;
-    Animator animator;
+    protected Rigidbody2D rb;
+    protected Animator animator;
 
     [Header("References")]
-    [SerializeField] FloatingHealthBar healthbar;
+    [SerializeField] protected HealthBar healthBar;
 
     protected virtual void Awake()
     {
@@ -46,6 +46,6 @@ public abstract class Character : MonoBehaviour
     public abstract void OnDeath();
     protected virtual void OnDamage(string originCode = "")
     {
-        healthbar.UpdateValue(currentHP, stats.maxHP);
+        healthBar.UpdateValue(currentHP, stats.maxHP);
     }
 }

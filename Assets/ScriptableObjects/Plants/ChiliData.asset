@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a135d03f73e4b84d8176c176ca9b5ab, type: 3}
   m_Name: ChiliData
   m_EditorClassIdentifier: 
-  sprite: {fileID: -4935639061791769972, guid: 6f7b5b2673a935c4e8707ea720b418d9, type: 3}
+  sprite: {fileID: 21300000, guid: 6f7b5b2673a935c4e8707ea720b418d9, type: 3}
   lifespan: 60
-  actionLoop: {fileID: 0}
+  damage: 5

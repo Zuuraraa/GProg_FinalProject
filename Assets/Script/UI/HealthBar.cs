@@ -1,13 +1,16 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : StatusBar
 {
-    [SerializeField] Slider slider;
-
-    public void UpdateValue(float value, float maxValue)
+    public override void UpdateValue(float value, float maxValue)
     {
-        slider.value = value / maxValue;
+        base.UpdateValue(value, maxValue);
+        if (label != null)
+        {
+            label.text = value.ToString() + " / " + maxValue.ToString();
+        }
     }
 
 }

@@ -19,7 +19,6 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-            
         SetDamageLevel(damageLevel); 
         SetSpeedLevel(speedLevel);
     }
@@ -40,19 +39,13 @@ public abstract class Weapon : MonoBehaviour
 
     public IEnumerator PerformAttack(Action callback)
     {
-        yield return new WaitForSecondsRealtime(FramesToSeconds(startSpeed));
+        yield return new WaitForSecondsRealtime(GameManager.FramesToSeconds(startSpeed));
         yield return StartCoroutine(AttackProcess());
-        yield return new WaitForSecondsRealtime(FramesToSeconds(endSpeed));
+        yield return new WaitForSecondsRealtime(GameManager.FramesToSeconds(endSpeed));
         callback();
     }
 
     protected abstract IEnumerator AttackProcess();
-
-
-    protected float FramesToSeconds(int frames)
-    {
-        return frames * Time.fixedDeltaTime;
-    }
 
     public int GetDamage()
     {

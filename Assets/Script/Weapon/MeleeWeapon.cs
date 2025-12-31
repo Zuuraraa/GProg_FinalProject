@@ -11,7 +11,7 @@ public class MeleeWeapon : Weapon
     {
         hurtbox.enabled = true;
         sprite.enabled = true;
-        yield return new WaitForSecondsRealtime(FramesToSeconds(attackSpeed));
+        yield return new WaitForSecondsRealtime(GameManager.FramesToSeconds(attackSpeed));
         hurtbox.enabled = false;
         sprite.enabled = false;
         yield break;

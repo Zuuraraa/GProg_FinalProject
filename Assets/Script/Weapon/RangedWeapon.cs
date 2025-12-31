@@ -40,7 +40,7 @@ public class RangedWeapon : Weapon
         if (projectileObj != null)
         {
             Projectile projectile = projectileObj.GetComponent<Projectile>();
-            StartCoroutine(projectile.Travel(Vector3.Normalize(direction), projectileSpeed, FramesToSeconds(projectileLifespan)));
+            StartCoroutine(projectile.Travel(Vector3.Normalize(direction), projectileSpeed, GameManager.FramesToSeconds(projectileLifespan)));
         }
         yield break;
     }

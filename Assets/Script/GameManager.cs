@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class GameManager : MonoBehaviour
         {
             CreateXPOrb();
         }
+    }
+
+
+    public static float FramesToSeconds(int frames)
+    {
+        return frames * Time.fixedDeltaTime;
     }
 
     public static void SpawnXPOrb(Vector3 position, int value)

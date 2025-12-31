@@ -20,7 +20,7 @@ public class RangedWeapon : Weapon
 
     protected override void Awake()
     {
-        //base.Awake();
+        base.Awake();
         projectilePool = new List<GameObject>();
         
         for (int i = 0; i < poolSize; i++)
@@ -31,7 +31,7 @@ public class RangedWeapon : Weapon
         }
     }
 
-    protected override IEnumerator AttackProcess()
+    protected override IEnumerator UseProcess()
     {
         GameObject projectileObj = SpawnAmmo(transform.position);
         Vector3 direction = (attackPointer.position - transform.position);
@@ -40,7 +40,9 @@ public class RangedWeapon : Weapon
         if (projectileObj != null)
         {
             Projectile projectile = projectileObj.GetComponent<Projectile>();
-            StartCoroutine(projectile.Travel(Vector3.Normalize(direction), projectileSpeed, FramesToSeconds(projectileLifespan)));
+            projectile.SetDamage(damage);
+            projectile.originCode = "Player";
+            projectile.StartCoroutine(projectile.Travel(Vector3.Normalize(direction), projectileSpeed, GameManager.FramesToSeconds(projectileLifespan)));
         }
         yield break;
     }

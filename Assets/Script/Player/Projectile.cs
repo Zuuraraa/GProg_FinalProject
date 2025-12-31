@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public int damage;
+    public string originCode = "";
 
     public IEnumerator Travel(Vector3 direction, float speed, float lifespan)
     {
@@ -18,6 +19,7 @@ public class Projectile : MonoBehaviour
             yield return null;
         }
         gameObject.SetActive(false);
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +27,8 @@ public class Projectile : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage, originCode);
+            StopAllCoroutines();
             gameObject.SetActive(false);
         }
     }

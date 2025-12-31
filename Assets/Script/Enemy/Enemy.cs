@@ -25,9 +25,12 @@ public class Enemy : Character
         gameObject.SetActive(false);
     }
 
-    protected override void OnDamage()
+    protected override void OnDamage(string originCode = "")
     {
-        base.OnDamage();
-        aggro.hasAggro = true;
+        base.OnDamage(originCode);
+        if (originCode == "Player")
+        {
+            aggro.hasAggro = true;
+        }
     }
 }

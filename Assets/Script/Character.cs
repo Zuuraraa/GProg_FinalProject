@@ -28,7 +28,7 @@ public abstract class Character : MonoBehaviour
         currentHP = stats.maxHP;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string originCode = "")
     {
         currentHP = Mathf.Clamp(currentHP - damage, 0, stats.maxHP);
         if (currentHP == 0)
@@ -37,14 +37,14 @@ public abstract class Character : MonoBehaviour
         }
         else
         {
-            OnDamage();
+            OnDamage(originCode);
         }
     }
      public Rigidbody2D GetRB() { return rb;}
      public Animator GetAnimator() { return animator; }
 
     public abstract void OnDeath();
-    protected virtual void OnDamage()
+    protected virtual void OnDamage(string originCode = "")
     {
         healthbar.UpdateValue(currentHP, stats.maxHP);
     }

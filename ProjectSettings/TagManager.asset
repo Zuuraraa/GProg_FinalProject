@@ -52,6 +52,9 @@ TagManager:
   - name: Projectile
     uniqueID: 2343473903
     locked: 0
+  - name: Plantable Plants
+    uniqueID: 1732638289
+    locked: 0
   - name: Character
     uniqueID: 2393699621
     locked: 0

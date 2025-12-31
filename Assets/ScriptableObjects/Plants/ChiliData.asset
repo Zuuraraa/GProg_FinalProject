@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a135d03f73e4b84d8176c176ca9b5ab, type: 3}
+  m_Name: ChiliData
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -4935639061791769972, guid: 6f7b5b2673a935c4e8707ea720b418d9, type: 3}
+  lifespan: 60
+  actionLoop: {fileID: 0}

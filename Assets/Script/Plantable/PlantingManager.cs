@@ -6,8 +6,6 @@ public class PlantingManager : MonoBehaviour
     public static PlantingManager instance;
     public static bool canPlant = false;
 
-    [SerializeField] GameObject highlight;
-
     [Header("Outer Bounds")]
     public Vector2 outerMinPosition;
     public Vector2 outerMaxPosition;
@@ -15,6 +13,11 @@ public class PlantingManager : MonoBehaviour
     [Header("Inner Bounds")]
     public Vector2 innerMinPosition;
     public Vector2 innerMaxPosition;
+
+    [Header("References")]
+    [SerializeField] GameObject plantPrefab;
+    [SerializeField] GameObject preview;
+
 
 
     private void Awake()
@@ -35,5 +38,14 @@ public class PlantingManager : MonoBehaviour
     bool IsWithinRange(float value, float min, float max)
     {
         return value >= min && value <= max;
+    }
+
+    public static void CreatePlant(PlantData data)
+    {
+        GameObject newPlant = Instantiate(instance.plantPrefab);
+        Plant plantScript = newPlant.GetComponent<Plant>();
+        newPlant.transform.position = instance.preview.transform.position;
+        plantScript.AssignData(data, (int)(instance.outerMinPosition.y - newPlant.transform.position.y));
+        plantScript.StartCoroutine(plantScript.ActionLoop());
     }
 }

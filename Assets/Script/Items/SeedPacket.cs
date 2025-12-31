@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SeedPacket : Item
 {
+    public PlantData plantData;
     [SerializeField] int packetCount = 0;
 
 
@@ -14,7 +15,7 @@ public class SeedPacket : Item
 
     public override void HandleUse()
     {
-        Debug.Log("Planted here");
+        PlantingManager.CreatePlant(plantData);
         packetCount--;
     }
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a135d03f73e4b84d8176c176ca9b5ab, type: 3}
+  m_Name: CornData
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -2618738300233419857, guid: 42bc830278692694cbf1e8a845af758b, type: 3}
+  lifespan: 10
+  actionLoop: {fileID: 11400000, guid: 1fef09d538cbea54e925aa8817c335aa, type: 2}

@@ -12,7 +12,11 @@ public class PlantingPreview : MonoBehaviour
         graphic.enabled = showHighlight;
         if (showHighlight)
         {
-            transform.position = Player.instance.transform.position;
+            Vector3 playerPos = Player.instance.transform.position;
+            graphic.sprite = ((SeedPacket)PlayerAction.currentItem).plantData.sprite;
+            transform.position = new Vector3(Mathf.Round(playerPos.x), Mathf.Round(playerPos.y) + .5f, 0);
         }
     }
+
+
 }

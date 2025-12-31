@@ -18,4 +18,6 @@ public abstract class Item : MonoBehaviour
 
     public abstract void HandleUse();
 
+    public abstract void HandleSwapIn();
+
 }

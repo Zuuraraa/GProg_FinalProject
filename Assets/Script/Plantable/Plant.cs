@@ -3,30 +3,32 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] PlantData plantData;
+    public PlantData plantData;
 
     [Header("References")]
     [SerializeField] SpriteRenderer graphic;
-
+    [SerializeField] PlantAction action;
     int lifespan = 10;
-    
+
+    private void Awake()
+    {
+        lifespan = plantData.lifespan;
+    }
+
     public IEnumerator ActionLoop()
     {
         while (lifespan > 0)
         {
-            Debug.Log(lifespan);
-            plantData.actionLoop.Action();
+            action.DoAction();
             yield return new WaitForSeconds(1);
             lifespan--;
         }
+        PlantingManager.plantCoords.Remove(transform.position);
         Destroy(gameObject);
     }
 
-    public void AssignData(PlantData data, int yIndex)
+    public void SetYIndex(int yIndex)
     {
-        plantData = data;
-        lifespan = plantData.lifespan;
-        graphic.sprite = plantData.sprite;
         graphic.sortingOrder = yIndex;
     }
 }

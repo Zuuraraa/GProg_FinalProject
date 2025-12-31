@@ -80,6 +80,7 @@ public class PlayerAction : MonoBehaviour
     {
         currentItemIdx = idx;
         currentItem = items[currentItemIdx];
+        currentItem.HandleSwapIn();
     }
 
     int GetValidItemIndex(Order order)

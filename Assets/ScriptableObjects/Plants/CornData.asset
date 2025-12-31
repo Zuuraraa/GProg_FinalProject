@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CornData
   m_EditorClassIdentifier: 
   sprite: {fileID: -2618738300233419857, guid: 42bc830278692694cbf1e8a845af758b, type: 3}
-  lifespan: 10
-  actionLoop: {fileID: 11400000, guid: 1fef09d538cbea54e925aa8817c335aa, type: 2}
+  lifespan: 60
+  actionLoop: {fileID: 0}

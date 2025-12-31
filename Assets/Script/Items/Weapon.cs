@@ -45,6 +45,10 @@ public abstract class Weapon : Item
             PlayerAction.isAttacking = false;
         }));
     }
+    public override void HandleSwapIn()
+    {
+        throw new NotImplementedException();
+    }
 
     public IEnumerator Use(Action callback)
     {

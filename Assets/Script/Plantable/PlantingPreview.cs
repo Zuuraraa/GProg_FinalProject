@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlantingPreview : MonoBehaviour
 {
 
-    [SerializeField] SpriteRenderer graphic;
+    public SpriteRenderer graphic;
     void Update()
     {
         bool holdingSeedPacket = PlayerAction.currentItem.GetType() == typeof(SeedPacket);
@@ -13,10 +13,9 @@ public class PlantingPreview : MonoBehaviour
         if (showHighlight)
         {
             Vector3 playerPos = Player.instance.transform.position;
-            graphic.sprite = ((SeedPacket)PlayerAction.currentItem).plantData.sprite;
             transform.position = new Vector3(Mathf.Round(playerPos.x), Mathf.Round(playerPos.y) + .5f, 0);
+            PlantingManager.currentPlantingPosition = transform.position;
         }
-    }
-
+    }    
 
 }

@@ -740,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 79dd13db86e93a34ea9dab5f7072f629, type: 2}
     - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
       propertyPath: unlocked
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8302522125107517027, guid: 1ad62bad023e35c46996e8631a8f50cb, type: 3}
       propertyPath: attackPointer
@@ -1110,6 +1110,10 @@ PrefabInstance:
       propertyPath: packetCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2750693042957250990, guid: 623d9b3ed1ab65942ac1ef2d47c9215d, type: 3}
+      propertyPath: plantPrefab
+      value: 
+      objectReference: {fileID: 4631839993826051251, guid: 51bcd426c6f29b643a1ef5739c7ddd77, type: 3}
     - target: {fileID: 4259054008707764210, guid: 623d9b3ed1ab65942ac1ef2d47c9215d, type: 3}
       propertyPath: m_Name
       value: Chili
@@ -1191,6 +1195,10 @@ PrefabInstance:
       propertyPath: packetCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2750693042957250990, guid: 623d9b3ed1ab65942ac1ef2d47c9215d, type: 3}
+      propertyPath: plantPrefab
+      value: 
+      objectReference: {fileID: 2879681476219899355, guid: 0f804da3fa92ecb4ead9434079435da3, type: 3}
     - target: {fileID: 4259054008707764210, guid: 623d9b3ed1ab65942ac1ef2d47c9215d, type: 3}
       propertyPath: m_Name
       value: Corn

@@ -4,6 +4,6 @@ using UnityEngine;
 public class PlantData : ScriptableObject
 {
     public Sprite sprite;
-    public int lifespan = 10;
-    public PlantLoop actionLoop;
+    public int lifespan = 60;
+    public int damage = 5;
 }

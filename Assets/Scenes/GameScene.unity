@@ -2408,22 +2408,42 @@ PrefabInstance:
       propertyPath: itemSlot
       value: 
       objectReference: {fileID: 223885140}
+    - target: {fileID: 5477028745414346055, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: useSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a9c0028a973964a815a4ee9adc8950, type: 3}
     - target: {fileID: 5921790006648163526, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 
       objectReference: {fileID: 1432749290}
+    - target: {fileID: 5921790006648163526, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: useSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a9c0028a973964a815a4ee9adc8950, type: 3}
     - target: {fileID: 6308470147361151839, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 
       objectReference: {fileID: 1451923185}
+    - target: {fileID: 6308470147361151839, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: useSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 423db6e663829ea429a8f6b13807e21b, type: 3}
     - target: {fileID: 6497511221979145600, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 
       objectReference: {fileID: 2010254728}
+    - target: {fileID: 6497511221979145600, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: useSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f57a5e0af14a4274fad319649b3e9bc6, type: 3}
     - target: {fileID: 7470104672232513730, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 
       objectReference: {fileID: 647458818}
+    - target: {fileID: 7470104672232513730, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: useSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 593d6f5bd1634df40a671bc517d80abf, type: 3}
     - target: {fileID: 7470104672232513730, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: projectileSpeed
       value: 10

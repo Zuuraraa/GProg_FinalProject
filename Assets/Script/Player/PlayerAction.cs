@@ -52,7 +52,12 @@ public class PlayerAction : MonoBehaviour
             FaceMouse();
         }
 
-        currentItem.CheckUse();
+        // currentItem.CheckUse();
+        if (currentItem != null) 
+        {
+             currentItem.CheckUse(audioSource);
+        }
+        
         if (currentItem.ValidToSwapOut())
         {
             CheckItemSwap();

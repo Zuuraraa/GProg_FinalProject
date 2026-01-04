@@ -154,11 +154,11 @@ MonoBehaviour:
   spawnInterval: 1
   waves:
   - waveName: 'Wave 1 '
-    enemyCount: 5
+    enemyCount: 7
   - waveName: Wave 2
-    enemyCount: 12
+    enemyCount: 15
   - waveName: Wave 3 - FINAL
-    enemyCount: 20
+    enemyCount: 25
 --- !u!4 &59972611
 Transform:
   m_ObjectHideFlags: 0
@@ -1336,7 +1336,7 @@ Transform:
   m_GameObject: {fileID: 1456772526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.69, y: -5.33, z: 0}
+  m_LocalPosition: {x: -10.69, y: -5.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1367,7 +1367,7 @@ Transform:
   m_GameObject: {fileID: 1514686653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.38, y: 16.66, z: 0}
+  m_LocalPosition: {x: -10.59, y: 16.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1398,7 +1398,7 @@ Transform:
   m_GameObject: {fileID: 1569948157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.76, y: 8.12, z: 0}
+  m_LocalPosition: {x: -29.3, y: 4.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1850,7 +1850,7 @@ Transform:
   m_GameObject: {fileID: 2037225235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.89, y: 3.45, z: 0}
+  m_LocalPosition: {x: 6.45, y: 1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

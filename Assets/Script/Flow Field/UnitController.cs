@@ -14,14 +14,14 @@ public class UnitController : MonoBehaviour
     [SerializeField] GridController playerTrackingGridController;
 
     [Header("Spawn Configuration")]
-    // List titik spawn aman. Drag object kosong dari scene ke sini.
-    // Ini revisi biar musuh gak spawn di sungai/luar map.
+    // Titik-titik spawn area (drag dari hierarchy).
+    // Pastikan titik ini ada di area aman (bukan sungai/tembok).
     public List<Transform> spawnPoints; 
     
-    // Radius random biar musuh gak numpuk di satu titik persis
+    // Radius random biar spawn-nya nyebar natural
     public float spawnRadius = 3f; 
 
-    // Public biar bisa diakses WaveManager buat ngecek jumlah musuh
+    // List tracking unit aktif untuk kebutuhan WaveManager
     public List<GameObject> unitsInGame;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class UnitController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Cleanup list: buang data musuh yang udah mati/null biar gak error
+        // Bersihin list kalau ada unit yang udah hancur/null biar gak error logic
         unitsInGame.RemoveAll(item => item == null);
 
         if (homeBaseTrackingGridController.curFlowField == null || playerTrackingGridController.curFlowField == null) return;
@@ -43,13 +43,13 @@ public class UnitController : MonoBehaviour
             Enemy enemyScript = unit.GetComponent<Enemy>();
             if (enemyScript == null) continue;
 
-            // Tentukan target: ngejar Player atau HomeBase?
+            // Logika pathfinding: Prioritas kejar Player kalau aggro, kalau enggak ya serang Base
             GridController gridController = enemyScript.aggro.hasAggro ? playerTrackingGridController : homeBaseTrackingGridController;
             Cell cellBelow = gridController.curFlowField.GetCellFromWorldPos(unit.transform.position);
             
             if (cellBelow != null)
             {
-                // Gerakin unit sesuai flow field
+                // Gerakkan unit via Rigidbody
                 Vector3 moveDirection = new Vector3(cellBelow.bestDirection.Vector.x, cellBelow.bestDirection.Vector.y, 0);
                 Rigidbody2D unitRB = unit.GetComponent<Rigidbody2D>();
                 if(unitRB != null) unitRB.linearVelocity = moveDirection * moveSpeed;
@@ -57,39 +57,37 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    // Fungsi ini dipanggil sama WaveManager pas mau spawn musuh
+    // Dipanggil WaveManager saat jam spawn tiba
     public void SpawnSingleUnit()
     {
-        // Safety check: pastiin spawn point udah dipasang di inspector
+        // Validasi: Jangan sampe lupa pasang spawn point di inspector
         if (spawnPoints == null || spawnPoints.Count == 0)
         {
-            Debug.LogWarning("!!! Spawn Points belom dipasang di UnitController! Musuh gak bakal muncul.");
+            Debug.LogWarning("Spawn Points kosong! Cek inspector UnitController.");
             return;
         }
 
         Vector3 spawnPos = Vector3.zero;
         
-        // 1. Pilih region/titik spawn secara acak dari list
+        // Pilih area spawn secara acak biar variatif
         Transform randomRegion = spawnPoints[Random.Range(0, spawnPoints.Count)];
 
-        // 2. Tambahin random offset biar posisinya variatif (gak numpuk)
+        // Tambah offset random dalam lingkaran radius biar gak numpuk di satu titik
         Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
         spawnPos = randomRegion.position + new Vector3(randomOffset.x, randomOffset.y, 0);
 
-        // 3. Spawn unitnya
+        // Instantiate musuh
         GameObject newUnit = Instantiate(unitPrefab, spawnPos, Quaternion.identity);
         Enemy enemyScript = newUnit.GetComponent<Enemy>();
         
+        // Set stat awal musuh (HP, Damage, dll)
         if(enemyScript != null) enemyScript.stats = stats;
         
-        // Masukin ke container transform ini biar rapi di hierarchy
         newUnit.transform.parent = transform;
-        
-        // Catet di list buat tracking
         unitsInGame.Add(newUnit);
     }
 
-    // Fungsi helper buat debugging aja
+    // Fungsi helper untuk reset game state (dipanggil saat game over/restart)
     private void DestroyUnits()
     {
         foreach (GameObject go in unitsInGame) if (go != null) Destroy(go);

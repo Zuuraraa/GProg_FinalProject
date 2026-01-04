@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [SerializeField] PlayerAction action;
     public static Player instance;
 
+    [Header("Stats")]
     public int maxHP;
     public float speedMult = 1f;
 
@@ -57,6 +59,12 @@ public class Player : Character
             LevelUpPanel.LeveledUp();
         }
     }
+
+
+    public Item GetItem(int index)
+    {
+        return action.items[index];
+    } 
 
     protected override void OnDamage(string originCode = "")
     {

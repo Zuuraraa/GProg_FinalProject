@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,11 +53,23 @@ public class LevelUpCard : MonoBehaviour
                 player.speedMult += playerStats.speedMultPerLevel;
                 break;
             default:
+                int weaponIndex = (int)levelUpType - 2;
+                Weapon weapon = Player.instance.GetItem(weaponIndex) as Weapon;
+                WeaponData weaponInfo = weapon.info;
+                if (weapon.unlocked)
+                {
+                    weapon.SetLevel(weapon.level + 1);
+                } else
+                {
+                    weapon.unlocked = true;
+                    InventoryPanel.instance.itemSlots[weaponIndex].SetSlotActive(true);
+                }
                 break;
 
         }
         player.level += 1;
         player.CheckLevelUp();
+        player.xpBar.UpdateValue(player.xp, ((PlayerStatistics)(player.stats)).xpTresholds[player.level]);
         LevelUpPanel.hasLevelUpOptions = false;
         LevelUpPanel.instance.gameObject.SetActive(false);
     }
@@ -78,16 +91,16 @@ public class LevelUpCard : MonoBehaviour
     void WeaponLevelUp()
     {
         int weaponIndex = (int)levelUpType - 2;
-        WeaponData weapon = weaponData[weaponIndex];
+        Weapon weapon = (Player.instance.GetItem(weaponIndex)) as Weapon;
+        WeaponData weaponInfo = weapon.info;
 
-        LevelData levelData = LevelUpPanel.GetLevelData();
-        LevelUpInfo weaponInfo = levelData.weaponLevel[weaponIndex] >= 0 ? weaponUpgradeInfo : weaponUnlockInfo;
-        titleLabel.text = string.Format(weaponInfo.upgradeName, weapon.name);
-        descriptionLabel.text = levelData.weaponLevel[weaponIndex] >= 0 ?
-            string.Format(weaponInfo.description, weapon.damageByLevel[levelData.weaponLevel[weaponIndex]])
+        LevelUpInfo weaponLevelUpInfo = weapon.unlocked ? weaponUpgradeInfo : weaponUnlockInfo;
+        titleLabel.text = string.Format(weaponLevelUpInfo.upgradeName, weapon.name);
+        descriptionLabel.text = weapon.unlocked ?
+            string.Format(weaponLevelUpInfo .description, weaponInfo.damageByLevel[weapon.level])
             :
-            string.Format(weaponInfo.description, weapon.name, weapon.description);
-        graphic.sprite = weapon.sprite;
+            string.Format(weaponLevelUpInfo .description, weapon.name, weaponInfo.description);
+        graphic.sprite = weaponInfo.sprite;
 
     }
 

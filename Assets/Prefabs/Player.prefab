@@ -189,7 +189,9 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: b4b0b7e6c3a676843b8b96bfafd11289, type: 2}
   currentHP: 0
   healthBar: {fileID: 0}
+  action: {fileID: 7971122154629318220}
   maxHP: 0
+  speedMult: 1
   xpBar: {fileID: 0}
   xp: 0
   level: 0
@@ -940,7 +942,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

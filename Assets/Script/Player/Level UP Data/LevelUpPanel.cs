@@ -3,12 +3,6 @@ using UnityEngine;
 
 public enum LevelUpType { None = -1, HP, Speed, Sickle, Spade, WateringCan }
 
-[System.Serializable]
-public class LevelData
-{
-    public int hpLevel = 0, speedLevel = 0;
-    public int[] weaponLevel = {0, -1, -1};
-}
 
 public class LevelUpPanel : MonoBehaviour
 {
@@ -17,9 +11,7 @@ public class LevelUpPanel : MonoBehaviour
     public static bool hasLevelUpOptions;
 
     [SerializeField] LevelUpCard[] levelUpCards = new LevelUpCard[2];
-    [SerializeField] LevelData levelData = new LevelData();
-
-
+    
     private void Awake()
     {
         instance = this;
@@ -53,8 +45,4 @@ public class LevelUpPanel : MonoBehaviour
         return upgradeType;
     }
 
-    public static LevelData GetLevelData()
-    {
-        return instance.levelData;
-    }
 }

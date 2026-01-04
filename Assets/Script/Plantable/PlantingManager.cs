@@ -50,7 +50,7 @@ public class PlantingManager : MonoBehaviour
         plantCoords.Add(newPlant.transform.position);
 
         Plant plantScript = newPlant.GetComponent<Plant>();
-        plantScript.SetYIndex((int)(newPlant.transform.position.y));
+        plantScript.SetYIndex((int)(-newPlant.transform.position.y));
         plantScript.StartCoroutine(plantScript.ActionLoop());
     }
 

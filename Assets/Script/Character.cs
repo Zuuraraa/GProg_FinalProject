@@ -10,7 +10,7 @@ public abstract class Character : MonoBehaviour
     protected Animator animator;
 
     [Header("References")]
-    [SerializeField] protected HealthBar healthBar;
+    public HealthBar healthBar;
 
     protected virtual void Awake()
     {

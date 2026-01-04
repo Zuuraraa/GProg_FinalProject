@@ -39,8 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CalculateSpeed()
     {
-        float speedMult = 1f;
-
+        var speedMult = player.speedMult;
         Vector3Int playerCell = slowTilemap.WorldToCell(transform.position);
         speedMult *= slowTilemap.HasTile(playerCell) ? slowMultiplier : 1f;
 

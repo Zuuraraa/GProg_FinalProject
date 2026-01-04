@@ -470,7 +470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3932460801095840976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5322659644108040598}
+        m_TargetAssemblyTypeName: LevelUpCard, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5322659644108040598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,3 +495,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9480577450adf1c4c976eb744b0eeed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: b4b0b7e6c3a676843b8b96bfafd11289, type: 2}
+  weaponData:
+  - {fileID: 11400000, guid: 40f0bbb16364437488a93489e3bcf7a7, type: 2}
+  - {fileID: 11400000, guid: da67ad38f5902fa498927299a8ffb406, type: 2}
+  - {fileID: 11400000, guid: 79dd13db86e93a34ea9dab5f7072f629, type: 2}
+  titleLabel: {fileID: 7638202396430859034}
+  descriptionLabel: {fileID: 1343334048254147577}
+  graphic: {fileID: 7677388873583227246}
+  hpInfo: {fileID: 11400000, guid: 8cc4ed062fb0aad4d972709db3b7193c, type: 2}
+  speedInfo: {fileID: 11400000, guid: b6d01e8e7b259664787933784c76fce4, type: 2}
+  weaponUpgradeInfo: {fileID: 11400000, guid: 0c679bd0fd79dc244aed28e7d47d931e, type: 2}
+  weaponUnlockInfo: {fileID: 11400000, guid: 9d134811b1718d14eafdc0edeafcc200, type: 2}

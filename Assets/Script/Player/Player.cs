@@ -7,9 +7,10 @@ public class Player : Character
     public static Player instance;
 
     public int maxHP;
+    public float speedMult = 1f;
 
     [Header("Progression")]
-    [SerializeField] XPBar xpBar;
+    public XPBar xpBar;
     public int xp;
     public int level = 0;
     int maxLevel;
@@ -41,10 +42,19 @@ public class Player : Character
         if (level < maxLevel)
         {
             xpBar.UpdateValue(xp, ((PlayerStatistics)stats).xpTresholds[level]);
+            CheckLevelUp();
         }
         else
         {
-            xpBar.ReachedMaxHP();
+            xpBar.ReachedMaxXP();
+        }
+    }
+
+    public void CheckLevelUp()
+    {
+        if (xp >= ((PlayerStatistics)stats).xpTresholds[level])
+        {
+            LevelUpPanel.LeveledUp();
         }
     }
 

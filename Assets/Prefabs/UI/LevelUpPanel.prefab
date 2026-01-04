@@ -1429,9 +1429,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae0a87a73ef84b49bb18dce5ed76333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUpCard:
+  levelUpCards:
   - {fileID: 3684978162074969100}
   - {fileID: 5556549461242476674}
+  levelData:
+    hpLevel: 0
+    speedLevel: 0
+    sickleLevel: 0
+    spadeLevel: -1
+    wateringCanLevel: -1
 --- !u!1 &3812677188615359479
 GameObject:
   m_ObjectHideFlags: 0

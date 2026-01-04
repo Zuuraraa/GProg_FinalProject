@@ -6,6 +6,8 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public bool canHoldFire;
+    public Sprite sprite;
+    [TextArea] public string description;
 
     [Header("Stats")]
     public int[] damageByLevel = { 5, 10, 15 };

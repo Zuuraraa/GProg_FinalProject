@@ -1,16 +1,60 @@
 using UnityEngine;
 
-public class LevelUpPanel : MonoBehaviour
-{
-    enum UpgradeTypes { HP, BaseHP, Speed, Sickle, Spade, WateringCan }
 
-    public LevelUpCard[] levelUpCard = new LevelUpCard[2];
-    public LevelData levelData = new LevelData();
-}
+public enum LevelUpType { None = -1, HP, Speed, Sickle, Spade, WateringCan }
 
-
-[System.Serializable] 
+[System.Serializable]
 public class LevelData
 {
-    public int hpLevel = 0, baseHpLevel = 0, speedLevel = 0, sickleLevel = 0, spadeLevel = -1, wateringCanLevel = -1;
+    public int hpLevel = 0, speedLevel = 0;
+    public int[] weaponLevel = {0, -1, -1};
+}
+
+public class LevelUpPanel : MonoBehaviour
+{
+
+    public static LevelUpPanel instance;
+    public static bool hasLevelUpOptions;
+
+    [SerializeField] LevelUpCard[] levelUpCards = new LevelUpCard[2];
+    [SerializeField] LevelData levelData = new LevelData();
+
+
+    private void Awake()
+    {
+        instance = this;
+        gameObject.SetActive(false);
+    }
+
+    public static void LeveledUp()
+    {
+        if (!hasLevelUpOptions)
+        {
+            hasLevelUpOptions = true;
+            GenerateLevelUpOptions();
+        }
+    }
+
+    static void GenerateLevelUpOptions()
+    {
+        LevelUpType firstOption = GenerateLevelUpOption(0);
+        GenerateLevelUpOption(1, firstOption);
+    }
+
+    static LevelUpType GenerateLevelUpOption(int index, LevelUpType ignore = LevelUpType.None)
+    {
+        LevelUpType upgradeType;
+        do
+        {
+            upgradeType = (LevelUpType)Random.Range(0, 5);
+        } while (upgradeType == ignore);
+
+        instance.levelUpCards[index].SetLevelUpType(upgradeType);
+        return upgradeType;
+    }
+
+    public static LevelData GetLevelData()
+    {
+        return instance.levelData;
+    }
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: WateringCan
   m_EditorClassIdentifier: 
   canHoldFire: 1
+  sprite: {fileID: 3435190667326688956, guid: 82e0f013fd286264eb6131fd43af34fe, type: 3}
+  description: A ranged weapon that shoots wate bubbles.
   damageByLevel: 040000000600000008000000
   startSpeedByLevel: 080000000600000004000000
   attackSpeedByLevel: 030000000200000001000000

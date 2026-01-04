@@ -10,9 +10,8 @@ Material:
   m_Name: LiberationSans SDF Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_Parent: {fileID: 6639372775272967036, guid: d8ed1db7390989a4f94cbb2174e7bb8f, type: 2}
-  m_ModifiedSerializedProperties: 2
-  m_ValidKeywords:
-  - GLOW_ON
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -30,18 +29,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GlowInner: 0.086
-    - _GlowOffset: 0.35
-    - _GlowOuter: 0.226
-    - _GlowPower: 1
     - _GradientScale: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
     - _ScaleRatioC: 0.73125
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    m_Colors:
-    - _GlowColor: {r: 0, g: 1, b: 0.7254901, a: 0.5}
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &11400000

@@ -1,23 +1,34 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("XP Orbs")]
+    [Header("Pickups")]
+    public GameObject hpPickupPrefab;
+    public GameObject seedPickupPrefab;
     public GameObject xpOrbPrefab;
-    public int xpOrbCount = 100;
+    public int pickUpCount = 25;
 
     static List<GameObject> xpOrbs;
+    static List<GameObject> hpPickups;
+    static List<GameObject> seedPickups;
     static GameManager instance;
+
     private void Awake()
     {
         instance = this;
         xpOrbs = new List<GameObject>();
-        for (int i = 0; i < xpOrbCount; i++)
+        hpPickups= new List<GameObject>();
+        seedPickups = new List<GameObject>();
+        for (int i = 0; i < pickUpCount; i++)
         {
-            CreateXPOrb();
+            CreatePickup(xpOrbs, xpOrbPrefab);
+            CreatePickup(hpPickups, hpPickupPrefab);
+            CreatePickup(seedPickups, seedPickupPrefab);
+
         }
     }
 
@@ -29,32 +40,60 @@ public class GameManager : MonoBehaviour
 
     public static void SpawnXPOrb(Vector3 position, int value)
     {
-        foreach (GameObject obj in xpOrbs)
-        {
-            if (obj.activeSelf == false)
-            {
-                SetUpOrb(obj, position, value);  
-                return;
-            }
-        }
-        SetUpOrb(CreateXPOrb(), position, value);
+        SpawnPickable(xpOrbs, instance.xpOrbPrefab, "XPOrb", position, value);
         
     }
     
-    static GameObject CreateXPOrb()
+    public static void SpawnRandomDrop(Vector3 position)
     {
-        GameObject orb = Instantiate(instance.xpOrbPrefab);
-        orb.SetActive(false);
-        xpOrbs.Add(orb);
-        return orb;
+        switch (Random.Range(0,10))
+        {
+            case 0:
+                SpawnPickable(hpPickups, instance.hpPickupPrefab, "HealthPickup", position);
+                break;
+            case 1:
+                SpawnPickable(seedPickups, instance.seedPickupPrefab, "SeedPickup", position, Random.Range(0,2));
+                break;
+            default:
+                break;
+        }
     }
 
-    static void SetUpOrb(GameObject xpOrb, Vector3 position, int value)
+    public static void SpawnPickable(List<GameObject> list, GameObject prefab, string type, Vector3 position, int value = -1)
     {
-        XPOrb xpOrbScript = xpOrb.GetComponent<XPOrb>();
-        xpOrb.transform.position = position;
-        xpOrbScript.Reset();
-        xpOrb.SetActive(true);
+        foreach (GameObject obj in list)
+        {
+            if (obj.activeSelf == false)
+            {
+                SetupPickable(obj, type, position, value);
+                return;
+            }
+        }
+        SetupPickable(CreatePickup(list, prefab), type, position, value);
+
     }
 
+    static GameObject CreatePickup(List<GameObject> list, GameObject prefab)
+    {
+        GameObject obj = Instantiate(prefab);
+        obj.SetActive(false);
+        list.Add(obj);
+        return obj;
+    }
+
+    static void SetupPickable(GameObject obj, string type, Vector3 position, int value)
+    {
+        Pickable script = (Pickable) (obj.GetComponent(type));
+        obj.transform.position = position;
+        script.Reset();
+        switch (type) {
+            case "XPOrb":
+                ((XPOrb)script).value = value;
+                break;
+            case "SeedPickup":
+                ((SeedPickup)script).seedType = (SeedPickup.SeedType)(value);
+                break;
+        }
+        obj.SetActive(true);
+    }
 }

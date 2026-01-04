@@ -62,15 +62,15 @@ public class LevelUpCard : MonoBehaviour
                 } else
                 {
                     weapon.unlocked = true;
-                    InventoryPanel.instance.itemSlots[weaponIndex].SetSlotActive(true);
+                    InventoryPanel.instance.itemSlots[weaponIndex].SetSlotUnlocked(true);
                 }
                 break;
 
         }
         player.level += 1;
-        player.CheckLevelUp();
         player.xpBar.UpdateValue(player.xp, ((PlayerStatistics)(player.stats)).xpTresholds[player.level]);
         LevelUpPanel.hasLevelUpOptions = false;
+        player.CheckLevelUp();
         LevelUpPanel.instance.gameObject.SetActive(false);
     }
 
@@ -97,7 +97,7 @@ public class LevelUpCard : MonoBehaviour
         LevelUpInfo weaponLevelUpInfo = weapon.unlocked ? weaponUpgradeInfo : weaponUnlockInfo;
         titleLabel.text = string.Format(weaponLevelUpInfo.upgradeName, weapon.name);
         descriptionLabel.text = weapon.unlocked ?
-            string.Format(weaponLevelUpInfo .description, weaponInfo.damageByLevel[weapon.level])
+            string.Format(weaponLevelUpInfo .description, (weaponInfo.damageByLevel[weapon.level] - weaponInfo.damageByLevel[weapon.level-1]))
             :
             string.Format(weaponLevelUpInfo .description, weapon.name, weaponInfo.description);
         graphic.sprite = weaponInfo.sprite;

@@ -77,6 +77,6 @@ public abstract class Weapon : Item
     public void SetUnlocked(bool value)
     {
         unlocked = value;
-        itemSlot.SetSlotActive(value);
+        itemSlot.SetSlotUnlocked(value);
     }
 }

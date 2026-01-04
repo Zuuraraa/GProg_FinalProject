@@ -37,7 +37,7 @@ public class SeedPacket : Item
     {
         packetCount = value;
         itemSlot.SetCounterLabel(packetCount);
-        itemSlot.SetSlotActive(packetCount > 0);
+        itemSlot.SetSlotUnlocked(packetCount > 0);
 
     }
 }

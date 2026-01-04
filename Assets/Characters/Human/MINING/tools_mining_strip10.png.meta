@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +78,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -130,12 +130,12 @@ TextureImporter:
       name: tools_mining_strip10_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 26
-        width: 18
-        height: 20
+        x: 32
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: tools_mining_strip10_1
       rect:
         serializedVersion: 2
-        x: 126
-        y: 27
-        width: 18
-        height: 20
+        x: 88
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: tools_mining_strip10_2
       rect:
         serializedVersion: 2
-        x: 218
-        y: 26
-        width: 18
-        height: 18
+        x: 120
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -196,12 +196,12 @@ TextureImporter:
       name: tools_mining_strip10_3
       rect:
         serializedVersion: 2
-        x: 313
-        y: 21
-        width: 19
-        height: 18
+        x: 175
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: tools_mining_strip10_4
       rect:
         serializedVersion: 2
-        x: 409
-        y: 19
-        width: 19
-        height: 18
+        x: 208
+        y: 16
+        width: 31
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: tools_mining_strip10_5
       rect:
         serializedVersion: 2
-        x: 531
-        y: 26
-        width: 21
-        height: 21
+        x: 272
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,12 +262,12 @@ TextureImporter:
       name: tools_mining_strip10_6
       rect:
         serializedVersion: 2
-        x: 630
-        y: 25
-        width: 21
-        height: 17
+        x: 304
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: tools_mining_strip10_7
       rect:
         serializedVersion: 2
-        x: 726
-        y: 25
-        width: 20
-        height: 14
+        x: 367
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -306,12 +306,12 @@ TextureImporter:
       name: tools_mining_strip10_8
       rect:
         serializedVersion: 2
-        x: 822
-        y: 24
-        width: 20
-        height: 14
+        x: 399
+        y: 15
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: tools_mining_strip10_9
       rect:
         serializedVersion: 2
-        x: 915
-        y: 24
-        width: 19
-        height: 19
+        x: 489
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,11 +346,209 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_10
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a41ec3e2e94a2449af6a7b97d2e4768
+      internalID: -1110521759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_11
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2cb6d42e7e636438b2c3d0173e0eb1
+      internalID: -51852387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_12
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea77dea107755be499b7701f6dd2e4e9
+      internalID: -490315811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_13
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55ba6e918d8575489af4b0abceb4c12
+      internalID: -47780760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_14
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c6ef707038ab64db51657b8e9ff433
+      internalID: 572632871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_15
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e52aa6a991868c47b5a3834c9fdae40
+      internalID: 1345217690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_16
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a357cca626923b498a9a6c9fdcbaae4
+      internalID: -1438274869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_17
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5765afb9c08f9241a11f8e808c97a62
+      internalID: -682715555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_mining_strip10_18
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afedbddda0219ef4e8646c91f14ae941
+      internalID: 579951041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: aa81a3a0b9587294f8f382cfd409e4fe
     internalID: 0
     vertices: []
     indices: 
@@ -362,6 +560,15 @@ TextureImporter:
     nameFileIdTable:
       tools_mining_strip10_0: 9112400251210102115
       tools_mining_strip10_1: -6436761662055753950
+      tools_mining_strip10_10: -1110521759
+      tools_mining_strip10_11: -51852387
+      tools_mining_strip10_12: -490315811
+      tools_mining_strip10_13: -47780760
+      tools_mining_strip10_14: 572632871
+      tools_mining_strip10_15: 1345217690
+      tools_mining_strip10_16: -1438274869
+      tools_mining_strip10_17: -682715555
+      tools_mining_strip10_18: 579951041
       tools_mining_strip10_2: 8955739557332482777
       tools_mining_strip10_3: 7524821417624711532
       tools_mining_strip10_4: 8673395174017172420

@@ -4,112 +4,95 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
+    [Header("Unit Settings")]
     public GameObject unitPrefab;
-    public int numUnitsPerSpawn;
     public float moveSpeed;
     public EnemyStatistics stats;
 
-    [Header("Grid Controllers")]
+    [Header("Grid References")]
     [SerializeField] GridController homeBaseTrackingGridController;
     [SerializeField] GridController playerTrackingGridController;
 
+    [Header("Spawn Configuration")]
+    // List titik spawn aman. Drag object kosong dari scene ke sini.
+    // Ini revisi biar musuh gak spawn di sungai/luar map.
+    public List<Transform> spawnPoints; 
+    
+    // Radius random biar musuh gak numpuk di satu titik persis
+    public float spawnRadius = 3f; 
+
+    // Public biar bisa diakses WaveManager buat ngecek jumlah musuh
     public List<GameObject> unitsInGame;
-    //GridController gridController;
 
     private void Awake()
     {
         unitsInGame = new List<GameObject>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SpawnUnits();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            DestroyUnits();
-        }
-    }
-
     private void FixedUpdate()
     {
-        if (homeBaseTrackingGridController.curFlowField == null || playerTrackingGridController.curFlowField == null) { return; }
+        // Cleanup list: buang data musuh yang udah mati/null biar gak error
+        unitsInGame.RemoveAll(item => item == null);
+
+        if (homeBaseTrackingGridController.curFlowField == null || playerTrackingGridController.curFlowField == null) return;
+        
         foreach (GameObject unit in unitsInGame)
         {
+            if (unit == null) continue;
+
             Enemy enemyScript = unit.GetComponent<Enemy>();
+            if (enemyScript == null) continue;
+
+            // Tentukan target: ngejar Player atau HomeBase?
             GridController gridController = enemyScript.aggro.hasAggro ? playerTrackingGridController : homeBaseTrackingGridController;
             Cell cellBelow = gridController.curFlowField.GetCellFromWorldPos(unit.transform.position);
-            Vector3 moveDirection = new Vector3(cellBelow.bestDirection.Vector.x, cellBelow.bestDirection.Vector.y, 0);
-            Rigidbody2D unitRB = unit.GetComponent<Rigidbody2D>();
-            unitRB.linearVelocity = moveDirection * moveSpeed;
-        }
-    }
-
-    private void SpawnUnits()
-    {
-        Vector2Int gridSize = homeBaseTrackingGridController.gridSize;
-        float nodeRadius = homeBaseTrackingGridController.cellRadius;
-        Vector2 maxSpawnPos = new Vector2(gridSize.x * nodeRadius * 2 + nodeRadius, gridSize.y * nodeRadius * 2 + nodeRadius);
-        int colMask = LayerMask.GetMask("Obstacle", "EnemyHitbox");
-        Vector3 newPos;
-        for (int i = 0; i < numUnitsPerSpawn; i++)
-        {
-            GameObject newUnit = Instantiate(unitPrefab);
-            Enemy enemyScript = newUnit.GetComponent<Enemy>();
-            enemyScript.stats = stats;
-            newUnit.transform.parent = transform;
-            unitsInGame.Add(newUnit);
-            do
+            
+            if (cellBelow != null)
             {
-                newPos = new Vector3(Random.Range(0, maxSpawnPos.x), Random.Range(0, maxSpawnPos.y), 0);
-                newUnit.transform.position = newPos;
+                // Gerakin unit sesuai flow field
+                Vector3 moveDirection = new Vector3(cellBelow.bestDirection.Vector.x, cellBelow.bestDirection.Vector.y, 0);
+                Rigidbody2D unitRB = unit.GetComponent<Rigidbody2D>();
+                if(unitRB != null) unitRB.linearVelocity = moveDirection * moveSpeed;
             }
-            while (Physics.OverlapSphere(newPos, 0.25f, colMask).Length > 0);
         }
     }
 
-    private void DestroyUnits()
-    {
-        foreach (GameObject go in unitsInGame)
-        {
-            Destroy(go);
-        }
-        unitsInGame.Clear();
-    }
-
-    // Method baru untuk spawn satu unit, dipanggil oleh WaveManager
+    // Fungsi ini dipanggil sama WaveManager pas mau spawn musuh
     public void SpawnSingleUnit()
     {
-        Vector2Int gridSize = homeBaseTrackingGridController.gridSize;
-        float nodeRadius = homeBaseTrackingGridController.cellRadius;
+        // Safety check: pastiin spawn point udah dipasang di inspector
+        if (spawnPoints == null || spawnPoints.Count == 0)
+        {
+            Debug.LogWarning("!!! Spawn Points belom dipasang di UnitController! Musuh gak bakal muncul.");
+            return;
+        }
+
+        Vector3 spawnPos = Vector3.zero;
         
-        // Hitung batas area spawn berdasarkan ukuran grid
-        Vector2 maxSpawnPos = new Vector2(
-            gridSize.x * nodeRadius * 2 + nodeRadius, 
-            gridSize.y * nodeRadius * 2 + nodeRadius
-        );
+        // 1. Pilih region/titik spawn secara acak dari list
+        Transform randomRegion = spawnPoints[Random.Range(0, spawnPoints.Count)];
 
-        int colMask = LayerMask.GetMask("Obstacle", "EnemyHitbox");
-        Vector3 newPos;
+        // 2. Tambahin random offset biar posisinya variatif (gak numpuk)
+        Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
+        spawnPos = randomRegion.position + new Vector3(randomOffset.x, randomOffset.y, 0);
 
-        GameObject newUnit = Instantiate(unitPrefab);
+        // 3. Spawn unitnya
+        GameObject newUnit = Instantiate(unitPrefab, spawnPos, Quaternion.identity);
         Enemy enemyScript = newUnit.GetComponent<Enemy>();
         
-        enemyScript.stats = stats;
+        if(enemyScript != null) enemyScript.stats = stats;
+        
+        // Masukin ke container transform ini biar rapi di hierarchy
         newUnit.transform.parent = transform;
         
-        // Tambahkan ke list agar terhitung di FlowField
+        // Catet di list buat tracking
         unitsInGame.Add(newUnit);
+    }
 
-        // Cari posisi spawn valid yang tidak menabrak obstacle
-        do
-        {
-            newPos = new Vector3(Random.Range(0, maxSpawnPos.x), Random.Range(0, maxSpawnPos.y), 0);
-            newUnit.transform.position = newPos;
-        }
-        while (Physics.OverlapSphere(newPos, 0.25f, colMask).Length > 0);
+    // Fungsi helper buat debugging aja
+    private void DestroyUnits()
+    {
+        foreach (GameObject go in unitsInGame) if (go != null) Destroy(go);
+        unitsInGame.Clear();
     }
 }

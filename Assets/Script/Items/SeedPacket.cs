@@ -29,6 +29,11 @@ public class SeedPacket : Item
 
     public override void HandleUse()
     {
+        if (Player.instance != null && Player.instance.animator != null)
+        {
+            Player.instance.animator.SetTrigger("Plant");
+        }
+        
         PlantingManager.CreatePlant(plantPrefab);
         IncrementPacketCount(-1);
     }

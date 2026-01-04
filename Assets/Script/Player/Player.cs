@@ -18,8 +18,8 @@ public class Player : Character
     int maxLevel;
 
     [Header("Audio Settings")]
-    [SerializeField] AudioSource audioSource; // Jangan lupa pasang di Inspector!
-    [SerializeField] AudioClip hitSound;      // Suara "Aduh!"
+    [SerializeField] AudioSource audioSource; 
+    [SerializeField] AudioClip hitSound;      
     [SerializeField] AudioClip deathSound;
 
     protected override void Awake()
@@ -35,6 +35,12 @@ public class Player : Character
         currentHP = stats.maxHP;
         healthBar.UpdateValue(currentHP, maxHP);
         xpBar.UpdateValue(xp, ((PlayerStatistics)stats).xpTresholds[level]);
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", false);
+            animator.Play("Idle"); 
+        }
     }
 
 
@@ -44,7 +50,30 @@ public class Player : Character
         {
             AudioSource.PlayClipAtPoint(deathSound, transform.position);
         }
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", true); 
+        }
+
+        // if (GameOverUI.instance != null)
+        // {
+        //     GameOverUI.instance.Show();
+        // }
+        if (action != null)
+        {
+            action.enabled = false; 
+        }
         // throw new System.NotImplementedException();
+        this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero; 
+            rb.simulated = false; 
+        }
     }
 
     internal void GainXp(int value)
@@ -85,6 +114,11 @@ public class Player : Character
         {
             audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
             audioSource.PlayOneShot(hitSound);
+        }
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Hurt"); 
         }
     }
 }

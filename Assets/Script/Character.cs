@@ -7,7 +7,7 @@ public abstract class Character : MonoBehaviour
     public int currentHP;
 
     protected Rigidbody2D rb;
-    protected Animator animator;
+    public Animator animator;
 
     [Header("References")]
     public HealthBar healthBar;

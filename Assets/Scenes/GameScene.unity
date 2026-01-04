@@ -2513,6 +2513,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 358898851}
     - target: {fileID: 8747671311515705933, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 6547839929881969664}
+    - target: {fileID: 8747671311515705933, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 8300000, guid: 3c1598ebaaee461479db454c2c914010, type: 3}
@@ -2843,6 +2847,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6547839929881969664 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 149744938797337447, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
+  m_PrefabInstance: {fileID: 437905220177331886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &6547839929881969665
 AudioSource:
   m_ObjectHideFlags: 0

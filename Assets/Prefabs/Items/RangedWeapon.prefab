@@ -44,9 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c50de88f7576db4f9e92a1d269cf9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSlot: {fileID: 0}
+  useSound: {fileID: 0}
   info: {fileID: 0}
   unlocked: 0
-  damageLevel: 1
-  speedLevel: 1
+  level: 1
+  animationType: 2
   poolSize: 120
   projectilePrefab: {fileID: 0}
+  attackPointer: {fileID: 0}
+  projectileSpeed: 10
+  projectileLifespan: 60

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc89210a4aa45c43b9f37ab2173ca10, type: 3}
   m_Name: Rat
   m_EditorClassIdentifier: 
-  maxHP: 10
+  maxHP: 15
   baseMoveSpeed: 5
   sprite: {fileID: 21300000, guid: 1ca47247c835b4e4a8560dddb8de6695, type: 3}
-  xpDrop: 1
+  xpDrop: 10
   damage: 5

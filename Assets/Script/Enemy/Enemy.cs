@@ -22,6 +22,7 @@ public class Enemy : Character
     public override void OnDeath()
     {
         GameManager.SpawnXPOrb(transform.position, ((EnemyStatistics) stats).xpDrop);
+        GameManager.SpawnRandomDrop(transform.position);
         gameObject.SetActive(false);
     }
 

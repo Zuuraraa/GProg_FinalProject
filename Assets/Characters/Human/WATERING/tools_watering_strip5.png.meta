@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,10 +115,10 @@ TextureImporter:
       name: tools_watering_strip5_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 22
-        width: 23
-        height: 11
+        x: 32
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: tools_watering_strip5_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 23
-        width: 24
-        height: 10
+        x: 64
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: tools_watering_strip5_2
       rect:
         serializedVersion: 2
-        x: 236
-        y: 21
-        width: 26
-        height: 12
+        x: 128
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: tools_watering_strip5_3
       rect:
         serializedVersion: 2
-        x: 332
-        y: 21
-        width: 28
-        height: 12
+        x: 160
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: tools_watering_strip5_4
       rect:
         serializedVersion: 2
-        x: 428
-        y: 22
-        width: 29
-        height: 11
+        x: 224
+        y: 16
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,11 +221,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tools_watering_strip5_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1d49abf486c4c4468d2f32f0d47b62e
+      internalID: -2016866173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_watering_strip5_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0146c6e004e964c9aa287b7a3c679a
+      internalID: -1826948920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_watering_strip5_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27f7afd6d68b14640a1a321924995c5f
+      internalID: 670520413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_watering_strip5_8
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ee9ce2ff24610489e4d806ac820d47
+      internalID: -1627884204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_watering_strip5_9
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 16
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02002905ab361b468a81a5ee3e30b93
+      internalID: -1546694934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d7daafa09a1d5574abc981dc122994c8
     internalID: 0
     vertices: []
     indices: 
@@ -240,6 +350,11 @@ TextureImporter:
       tools_watering_strip5_2: 7463360126473659547
       tools_watering_strip5_3: 4954221087515835092
       tools_watering_strip5_4: -225296351777544779
+      tools_watering_strip5_5: -2016866173
+      tools_watering_strip5_6: -1826948920
+      tools_watering_strip5_7: 670520413
+      tools_watering_strip5_8: -1627884204
+      tools_watering_strip5_9: -1546694934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

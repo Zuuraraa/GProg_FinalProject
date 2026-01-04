@@ -1300,6 +1300,17 @@ Tilemap:
   m_CorrespondingSourceObject: {fileID: 2316824400460412531, guid: 50fb67bf22b90214fae1cfed23e0e399, type: 3}
   m_PrefabInstance: {fileID: 6497927303829521490}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451923185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6973978031071518335, guid: 57a4e97a43bea57448358a198f02b848, type: 3}
+  m_PrefabInstance: {fileID: 1087429378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f153807bf50c17479910bfe0be32032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456772526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,33 +1404,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 338042780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &1737159429 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1426866976662245241, guid: 1d98f7aecdab59149b20dc79b74d97a3, type: 3}
-  m_PrefabInstance: {fileID: 992415588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1740013749 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1911408049059211697, guid: 57a4e97a43bea57448358a198f02b848, type: 3}
-  m_PrefabInstance: {fileID: 1087429378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f153807bf50c17479910bfe0be32032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1740516888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2099849040222425356, guid: 57a4e97a43bea57448358a198f02b848, type: 3}
-  m_PrefabInstance: {fileID: 1087429378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f153807bf50c17479910bfe0be32032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1786100964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,7 +1977,7 @@ PrefabInstance:
     - target: {fileID: 6308470147361151839, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 
-      objectReference: {fileID: 1472342024}
+      objectReference: {fileID: 1451923185}
     - target: {fileID: 6497511221979145600, guid: 7501d405bd436984e9e4f0e2d7d8d726, type: 3}
       propertyPath: itemSlot
       value: 

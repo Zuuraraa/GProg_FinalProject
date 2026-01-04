@@ -17,9 +17,12 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] GameObject anchor;
     [SerializeField] SpriteRenderer[] sprites;
 
+    [Header("Audio Settings")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] equipSounds;
 
     [Header("Items")]
-    [SerializeField] Item[] items;
+    public Item[] items;
     [SerializeField] int currentItemIdx;
 
     int itemsCount;
@@ -38,7 +41,7 @@ public class PlayerAction : MonoBehaviour
 
     private void Start()
     {
-        InventoryPanel.ActivateItemSlot(currentItemIdx);
+        InventoryPanel.SelectWeaponSlot(currentItemIdx);
     }
 
     void Update()
@@ -101,9 +104,20 @@ public class PlayerAction : MonoBehaviour
     void SwapItem(int idx)
     {
         currentItemIdx = idx;
-        InventoryPanel.ActivateItemSlot(currentItemIdx);
+        InventoryPanel.SelectWeaponSlot(currentItemIdx);
         currentItem = items[currentItemIdx];
         currentItem.HandleSwapIn();
+
+        PlayEquipSound(idx);
+    }
+
+    void PlayEquipSound(int index)
+    {
+        if (audioSource != null && equipSounds.Length > index && equipSounds[index] != null)
+        {
+            audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f); 
+            audioSource.PlayOneShot(equipSounds[index]);
+        }
     }
 
     int GetValidItemIndex(Order order)

@@ -23,7 +23,7 @@ public class InventoryPanel : MonoBehaviour
         }
     }
 
-    public static void ActivateItemSlot(int index)
+    public static void SelectWeaponSlot(int index)
     {
         int slotCount = instance.itemSlots.Count;
         for (int i = 0; i < slotCount; i++)

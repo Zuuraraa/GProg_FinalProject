@@ -43,8 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CalculateSpeed()
     {
-        float speedMult = 1f;
-
+        var speedMult = player.speedMult;
         Vector3Int playerCell = slowTilemap.WorldToCell(transform.position);
         speedMult *= slowTilemap.HasTile(playerCell) ? slowMultiplier : 1f;
 
@@ -53,14 +52,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayFootstep()
     {
-        Debug.Log("Drap drap drap! (Fungsi terpanggil)");
-
-        if (audioSource != null && footstepSound != null && movement.sqrMagnitude > 0.1f)
-        {
+        if (movement.sqrMagnitude > 0.1f && audioSource != null && footstepSound != null)
+    {
         
-            audioSource.pitch = Random.Range(0.8f, 1.2f);
-    
-            audioSource.PlayOneShot(footstepSound);
-        }
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
+
+ 
+        float randomVolume = Random.Range(0.8f, 1.0f);
+
+
+        audioSource.PlayOneShot(footstepSound, randomVolume);
+    }
     }
 }

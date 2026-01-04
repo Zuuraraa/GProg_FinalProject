@@ -1,15 +1,13 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class XPOrb : MonoBehaviour
+public abstract class Pickable : MonoBehaviour
 {
     public float defaultSpeed = 5f;
-    public int value = 1;
 
 
     CircleCollider2D detectionCollider;
     CapsuleCollider2D collisionCollider;
+
     Transform target = null;
     float speed = 5f;
 
@@ -41,17 +39,19 @@ public class XPOrb : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            player.GainXp(value);
+            CollisionResult(player);
             gameObject.SetActive(false);
         }
     }
+
+    protected abstract void CollisionResult(Player player);
 
     public void SetTarget(Transform _target)
     {
         target = _target;
     }
 
-    public void Reset()
+    public virtual void Reset()
     {
         speed = defaultSpeed;
         target = null;

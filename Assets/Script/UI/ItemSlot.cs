@@ -45,7 +45,7 @@ public class ItemSlot : MonoBehaviour
         background.color = active ? Color.yellow : Color.white;
     }
 
-    public void SetSlotActive(bool active)
+    public void SetSlotUnlocked(bool active)
     {
         graphic.color = active ? Color.white: new Color(.2f, .2f, .2f, 1);
     }

@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7479045662656187879}
   - component: {fileID: 3230455858788992359}
-  - component: {fileID: 9034843349629230088}
   - component: {fileID: 958555386086568919}
   - component: {fileID: 2964495017497159288}
   m_Layer: 0
-  m_Name: XPOrb
+  m_Name: Pickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9034843349629230088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3495408409829027148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4606421f36cb44589e9cb593b74ef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSpeed: 5
-  value: 1
 --- !u!58 &958555386086568919
 CircleCollider2D:
   m_ObjectHideFlags: 0

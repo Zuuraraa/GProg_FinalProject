@@ -79,3 +79,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 5
   value: 1
+  pickupSound: {fileID: 8300000, guid: 2628356223a208043823df26c1441a7b, type: 3}

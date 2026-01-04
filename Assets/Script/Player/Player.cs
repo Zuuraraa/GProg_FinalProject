@@ -17,6 +17,11 @@ public class Player : Character
     public int level = 0;
     int maxLevel;
 
+    [Header("Audio Settings")]
+    [SerializeField] AudioSource audioSource; // Jangan lupa pasang di Inspector!
+    [SerializeField] AudioClip hitSound;      // Suara "Aduh!"
+    [SerializeField] AudioClip deathSound;
+
     protected override void Awake()
     {
         base.Awake();
@@ -35,7 +40,11 @@ public class Player : Character
 
     public override void OnDeath()
     {
-        throw new System.NotImplementedException();
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
+        // throw new System.NotImplementedException();
     }
 
     internal void GainXp(int value)
@@ -68,6 +77,14 @@ public class Player : Character
 
     protected override void OnDamage(string originCode = "")
     {
+        base.OnDamage(originCode);
+
         healthBar.UpdateValue(currentHP, maxHP);
+
+        if (audioSource != null && hitSound != null)
+        {
+            audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(hitSound);
+        }
     }
 }

@@ -32,6 +32,12 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         if (waveTextUI != null) waveTextUI.gameObject.SetActive(false);
+
+        if (MusicManager.instance != null) 
+        {
+            MusicManager.instance.PlayCalmMusic();
+        }
+
         // Memulai wave dengan delay kecil agar UnitController siap
         Invoke(nameof(StartNextWave), 1f); 
     }
@@ -104,6 +110,11 @@ public class WaveManager : MonoBehaviour
         finishedSpawning = false; // Reset status spawn untuk wave berikutnya
         waveTimer = timeBetweenWaves;
         if (waveTextUI != null) waveTextUI.gameObject.SetActive(true);
+
+        if (MusicManager.instance != null)
+        {
+            MusicManager.instance.PlayCalmMusic();
+        }
     }
 
     void StartNextWave()
@@ -118,6 +129,11 @@ public class WaveManager : MonoBehaviour
     {
         isWaveActive = true; 
         finishedSpawning = false; // [FIX] Pastikan false saat mulai
+
+        if (MusicManager.instance != null)
+        {
+            MusicManager.instance.PlayBattleMusic();
+        }
 
         // UI Judul Wave
         if (waveTextUI != null)

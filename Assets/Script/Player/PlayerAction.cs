@@ -19,7 +19,7 @@ public class PlayerAction : MonoBehaviour
 
 
     [Header("Items")]
-    [SerializeField] Item[] items;
+    public Item[] items;
     [SerializeField] int currentItemIdx;
 
     int itemsCount;
@@ -38,7 +38,7 @@ public class PlayerAction : MonoBehaviour
 
     private void Start()
     {
-        InventoryPanel.ActivateItemSlot(currentItemIdx);
+        InventoryPanel.SelectWeaponSlot(currentItemIdx);
     }
 
     void Update()
@@ -101,7 +101,7 @@ public class PlayerAction : MonoBehaviour
     void SwapItem(int idx)
     {
         currentItemIdx = idx;
-        InventoryPanel.ActivateItemSlot(currentItemIdx);
+        InventoryPanel.SelectWeaponSlot(currentItemIdx);
         currentItem = items[currentItemIdx];
         currentItem.HandleSwapIn();
     }

@@ -60,7 +60,7 @@ public abstract class Weapon : Item
 
     protected abstract IEnumerator UseProcess();
 
-    void SetLevel(int newLevel)
+    public void SetLevel(int newLevel)
     {
         level = newLevel;
         damage = info.damageByLevel[level - 1];
@@ -77,6 +77,6 @@ public abstract class Weapon : Item
     public void SetUnlocked(bool value)
     {
         unlocked = value;
-        itemSlot.SetSlotActive(value);
+        itemSlot.SetSlotUnlocked(value);
     }
 }

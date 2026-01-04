@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,6 +13,7 @@ public class HomeBase : Character
         base.Awake();
         boxCollider = GetComponent<BoxCollider2D>();
     }
+
     public override void OnDeath()
     {
         graphics.enabled = false;

@@ -7,6 +7,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Settings")]
     public float slowMultiplier = 0.5f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip footstepSound;
+
     [Header("References")]
     public Player player;
     public Tilemap slowTilemap;
@@ -46,5 +50,18 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed = player.stats.baseMoveSpeed * speedMult;
     }
 
-   
+    public void PlayFootstep()
+    {
+        if (movement.sqrMagnitude > 0.1f && audioSource != null && footstepSound != null)
+    {
+        
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
+
+ 
+        float randomVolume = Random.Range(0.8f, 1.0f);
+
+
+        audioSource.PlayOneShot(footstepSound, randomVolume);
+    }
+    }
 }

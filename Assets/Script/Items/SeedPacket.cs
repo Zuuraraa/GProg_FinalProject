@@ -8,10 +8,15 @@ public class SeedPacket : Item
     [SerializeField] int packetCount = 0;
 
 
-    public override void CheckUse()
+    public override void CheckUse(AudioSource source)
     {
         if (Input.GetMouseButtonDown(0) && PlantingManager.IsCurrentPositionClear() && PlantingManager.canPlant && packetCount > 0) 
         { 
+            if (source != null && useSound != null)
+            {
+                source.pitch = UnityEngine.Random.Range(0.9f, 1.1f); // Variasi nada dikit
+                source.PlayOneShot(useSound);
+            }
             HandleUse(); 
         }
     }
@@ -24,6 +29,11 @@ public class SeedPacket : Item
 
     public override void HandleUse()
     {
+        if (Player.instance != null && Player.instance.animator != null)
+        {
+            Player.instance.animator.SetTrigger("Plant");
+        }
+        
         PlantingManager.CreatePlant(plantPrefab);
         IncrementPacketCount(-1);
     }

@@ -31,14 +31,29 @@ public abstract class Weapon : Item
         return !PlayerAction.isAttacking;
     }
 
-    public override void CheckUse()
+    public override void CheckUse(AudioSource source)
     {
         bool validMouse = (info.canHoldFire ? Input.GetMouseButton(0) : Input.GetMouseButtonDown(0));
-        if (validMouse && !PlayerAction.isAttacking) { HandleUse(); }
+        if (validMouse && !PlayerAction.isAttacking) { 
+
+            if (source != null && useSound != null)
+            {
+                source.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+                source.PlayOneShot(useSound);
+            }
+
+            HandleUse(); 
+        }
     }
 
     public override void HandleUse()
     {
+        if (Player.instance != null && Player.instance.animator != null)
+        {
+            Player.instance.animator.SetInteger("WeaponType", info.animationType);
+            Player.instance.animator.SetTrigger("Attack");
+        }
+
         PlayerAction.isAttacking = true;
         StartCoroutine(Use(() => {
             PlayerAction.freezeAiming = false;

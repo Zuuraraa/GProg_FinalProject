@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Item : MonoBehaviour
 {
     public ItemSlot itemSlot;
+    [Header("Audio Settings")]
+    public AudioClip useSound;
     public virtual bool ValidToSwapInto()
     {
         return true;
@@ -15,7 +17,7 @@ public abstract class Item : MonoBehaviour
         return true;
     }
 
-    public abstract void CheckUse();
+    public abstract void CheckUse(AudioSource source);
 
     public abstract void HandleUse();
 

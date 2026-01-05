@@ -17,6 +17,11 @@ public class Player : Character
     public int level = 0;
     int maxLevel;
 
+    [Header("Audio Settings")]
+    [SerializeField] AudioSource audioSource; 
+    [SerializeField] AudioClip hitSound;      
+    [SerializeField] AudioClip deathSound;
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,12 +35,45 @@ public class Player : Character
         currentHP = stats.maxHP;
         healthBar.UpdateValue(currentHP, maxHP);
         xpBar.UpdateValue(xp, ((PlayerStatistics)stats).xpTresholds[level]);
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", false);
+            animator.Play("Idle"); 
+        }
     }
 
 
     public override void OnDeath()
     {
-        throw new System.NotImplementedException();
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        }
+
+        if (animator != null)
+        {
+            animator.SetBool("IsDead", true); 
+        }
+
+        // if (GameOverUI.instance != null)
+        // {
+        //     GameOverUI.instance.Show();
+        // }
+        if (action != null)
+        {
+            action.enabled = false; 
+        }
+        // throw new System.NotImplementedException();
+        this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero; 
+            rb.simulated = false; 
+        }
     }
 
     internal void GainXp(int value)
@@ -68,6 +106,19 @@ public class Player : Character
 
     protected override void OnDamage(string originCode = "")
     {
+        base.OnDamage(originCode);
+
         healthBar.UpdateValue(currentHP, maxHP);
+
+        if (audioSource != null && hitSound != null)
+        {
+            audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(hitSound);
+        }
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Hurt"); 
+        }
     }
 }

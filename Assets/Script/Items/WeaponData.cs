@@ -14,4 +14,7 @@ public class WeaponData : ScriptableObject
     public int[] startSpeedByLevel = { 4, 2, 1 };
     public int[] attackSpeedByLevel = { 4, 2, 1 };
     public int[] endSpeedByLevel = { 4, 2, 1 };
+
+    [Header("Visuals")]
+    public int animationType;
 }

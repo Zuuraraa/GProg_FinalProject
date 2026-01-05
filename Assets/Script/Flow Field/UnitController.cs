@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UnitController : MonoBehaviour
 {
     [Header("Unit Settings")]
-    public float moveSpeed;
-    // Stats default (opsional, better diatur di scriptable object prefab masing-masing)
-    public EnemyStatistics stats;
+    public GameObject enemyPrefab;
 
     [Header("Grid References")]
     [SerializeField] GridController homeBaseTrackingGridController;
@@ -49,14 +48,16 @@ public class UnitController : MonoBehaviour
             {
                 Vector3 moveDirection = new Vector3(cellBelow.bestDirection.Vector.x, cellBelow.bestDirection.Vector.y, 0);
                 Rigidbody2D unitRB = unit.GetComponent<Rigidbody2D>();
-                if(unitRB != null) unitRB.linearVelocity = moveDirection * moveSpeed;
+                if(unitRB != null) unitRB.linearVelocity = moveDirection * enemyScript.stats.baseMoveSpeed;
+                enemyScript.graphics.flipX = moveDirection.x < 0;
             }
+
         }
     }
 
     // Fungsi spawn dipanggil oleh WaveManager
     // Parameter 'prefabToSpawn' ditentukan dari settingan Wave di inspector
-    public void SpawnSingleUnit(GameObject prefabToSpawn)
+    public void SpawnSingleUnit(EnemyStatistics stats)
     {
         if (spawnPoints == null || spawnPoints.Count == 0)
         {
@@ -65,9 +66,9 @@ public class UnitController : MonoBehaviour
         }
 
         // Safety check kalau prefab lupa dimasukin di WaveManager
-        if (prefabToSpawn == null)
+        if (stats == null)
         {
-            Debug.LogError("Prefab musuh kosong (null). Cek settingan WaveManager.");
+            Debug.LogError("Enemy stats kosong (null). Cek settingan WaveManager.");
             return;
         }
 
@@ -78,8 +79,13 @@ public class UnitController : MonoBehaviour
         Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
         spawnPos = randomRegion.position + new Vector3(randomOffset.x, randomOffset.y, 0);
 
-        GameObject newUnit = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        GameObject newUnit = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         
+        // Add Stats
+        Enemy enemyScript = newUnit.GetComponent<Enemy>();
+        enemyScript.stats = stats;
+        enemyScript.Reset();
+
         // Setup parent biar hierarchy rapi
         newUnit.transform.parent = transform;
         

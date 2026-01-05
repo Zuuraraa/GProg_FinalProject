@@ -17,6 +17,17 @@ public class Enemy : Character
         EnemyStatistics enemyStats = (EnemyStatistics) stats;
         if (enemyStats == null) { return; }
         base.Reset();
+        if (enemyStats.isBoss)
+        {
+            transform.localScale = Vector3.one * 4;
+            ((FloatingHealthBar)healthBar).offset.y = 2.4f;
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+            ((FloatingHealthBar)healthBar).offset.y = 0.6f;
+        }
+
         if (enemyStats.sprite)
         {
             graphics.sprite = enemyStats.sprite;

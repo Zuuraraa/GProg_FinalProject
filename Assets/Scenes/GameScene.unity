@@ -148,20 +148,132 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4be20a0a86cae409f44407405f19bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   unitSpawner: {fileID: 2043692564}
   waveTextUI: {fileID: 1835144592}
   timeBetweenWaves: 10
   spawnInterval: 1
   waves:
   - waveName: 'Wave 1 '
-    enemyCount: 7
-    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
+    enemyList:
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 7
   - waveName: Wave 2
-    enemyCount: 15
-    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
-  - waveName: Wave 3 - FINAL
-    enemyCount: 25
-    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
+    enemyList:
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 15
+  - waveName: Wave 3
+    enemyList:
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 5
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 5
+  - waveName: Wave 4
+    enemyList:
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 8
+  - waveName: Wave 5
+    enemyList:
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 6
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 5
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 7
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 8
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 8
+  - waveName: Wave 9 - BOSS WAVE
+    enemyList:
+    - stats: {fileID: 11400000, guid: a4b32caadca48e34598b32a950e2bf9b, type: 2}
+      count: 1
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 5
+  - waveName: Wave 10
+    enemyList:
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 5
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 8
+  - waveName: Wave 11
+    enemyList:
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 12
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 12
+  - waveName: Wave 13
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 8
+  - waveName: Wave 14
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 15
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 12
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 12
+  - waveName: Wave 16
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 8
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 8
+  - waveName: Wave 17
+    enemyList:
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 6
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 6
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 6
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 6
+  - waveName: Wave 18 - FINAL WAVE
+    enemyList:
+    - stats: {fileID: 11400000, guid: a4b32caadca48e34598b32a950e2bf9b, type: 2}
+      count: 3
+    - stats: {fileID: 11400000, guid: 257d87bc42ff9934a86e2677d0ce4ebb, type: 2}
+      count: 3
+    - stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+      count: 3
+    - stats: {fileID: 11400000, guid: 40a6172045aae32448e52dbeca2795a6, type: 2}
+      count: 3
+    - stats: {fileID: 11400000, guid: 04a9f28a4f25fcb4d9df6d0281cf0c2b, type: 2}
+      count: 3
 --- !u!4 &59972611
 Transform:
   m_ObjectHideFlags: 0
@@ -3145,8 +3257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13e570c20574c843a83385146374616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
+  enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   homeBaseTrackingGridController: {fileID: 1786100966}
   playerTrackingGridController: {fileID: 915076739}
   spawnPoints:

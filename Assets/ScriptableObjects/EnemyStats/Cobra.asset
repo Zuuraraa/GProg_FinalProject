@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc89210a4aa45c43b9f37ab2173ca10, type: 3}
+  m_Name: Cobra
+  m_EditorClassIdentifier: 
+  maxHP: 50
+  baseMoveSpeed: 8
+  sprite: {fileID: 8280168119923062025, guid: cc1af0be94edd2d4bbca955f610c5a5a, type: 3}
+  xpDrop: 3
+  damage: 30

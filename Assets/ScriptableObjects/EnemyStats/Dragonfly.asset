@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efc89210a4aa45c43b9f37ab2173ca10, type: 3}
-  m_Name: Rat
+  m_Name: Dragonfly
   m_EditorClassIdentifier: 
-  maxHP: 30
+  maxHP: 60
   baseMoveSpeed: 5
-  sprite: {fileID: 0}
-  xpDrop: 10
-  damage: 5
+  sprite: {fileID: -4576578716921751112, guid: 45920271f52460d4d81c37edabbfa0ce, type: 3}
+  xpDrop: 3
+  damage: 10

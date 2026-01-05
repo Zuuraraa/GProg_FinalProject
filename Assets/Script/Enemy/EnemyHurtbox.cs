@@ -28,10 +28,10 @@ public class EnemyHurtbox : MonoBehaviour
     protected IEnumerator AttackDelay()
     {
         circleCollider.enabled = false;
-        enemy.graphics.color = new Color(1,1,1,.5f);
+        enemy.graphics.color = new Color(.75f, .75f, .75f);
         yield return new WaitForSeconds(.5f);
         circleCollider.enabled = true;
-        enemy.graphics.color = new Color(1, 1, 1, 1);
+        enemy.graphics.color = new Color(1, 1, 1);
         yield break;
     }
 }

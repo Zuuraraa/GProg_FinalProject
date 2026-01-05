@@ -6,4 +6,5 @@ public class EnemyStatistics : Statistics
     public Sprite sprite;
     public int xpDrop = 1;
     public int damage = 10;
+    public bool isBoss;
 }

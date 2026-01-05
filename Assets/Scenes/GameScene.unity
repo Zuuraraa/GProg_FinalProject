@@ -151,14 +151,38 @@ MonoBehaviour:
   unitSpawner: {fileID: 2043692564}
   waveTextUI: {fileID: 1835144592}
   timeBetweenWaves: 10
-  spawnInterval: 1
+  spawnInterval: 2
   waves:
   - waveName: 'Wave 1 '
-    enemyCount: 7
+    enemyCount: 5
+    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   - waveName: Wave 2
     enemyCount: 15
-  - waveName: Wave 3 - FINAL
+    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
+  - waveName: Wave 3
     enemyCount: 25
+    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
+  - waveName: Wave 4
+    enemyCount: 15
+    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
+  - waveName: Wave 5
+    enemyCount: 30
+    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
+  - waveName: Wave 6
+    enemyCount: 28
+    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
+  - waveName: Wave 7
+    enemyCount: 15
+    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
+  - waveName: Wave 8
+    enemyCount: 50
+    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
+  - waveName: Wave 9
+    enemyCount: 35
+    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
+  - waveName: Wave 10
+    enemyCount: 25
+    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
 --- !u!4 &59972611
 Transform:
   m_ObjectHideFlags: 0
@@ -3142,7 +3166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13e570c20574c843a83385146374616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   moveSpeed: 3
   stats: {fileID: 11400000, guid: fbcae382ed915154195e8e9cc15d475a, type: 2}
   homeBaseTrackingGridController: {fileID: 1786100966}

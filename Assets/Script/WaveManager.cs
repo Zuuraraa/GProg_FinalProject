@@ -14,46 +14,41 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float spawnInterval = 1f;
     [SerializeField] List<WaveData> waves;
 
+    // Class buat nyimpen data per wave biar rapi di inspector
     [System.Serializable]
     public class WaveData
     {
         public string waveName;
         public int enemyCount;
+        
+        // Slot buat masukin prefab musuh (Rat, Cobra, Bee, dll)
+        public GameObject enemyPrefab; 
     }
 
     private int currentWaveIndex = 0;
     private bool isWaveActive = false;
     private bool isWaitingForNextWave = false;
     private float waveTimer = 0f;
-    
-    // [FIX] Variabel baru: Penjaga agar tidak curi start
     private bool finishedSpawning = false; 
 
     private void Start()
     {
         if (waveTextUI != null) waveTextUI.gameObject.SetActive(false);
-
-        if (MusicManager.instance != null) 
-        {
-            MusicManager.instance.PlayCalmMusic();
-        }
-
-        // Memulai wave dengan delay kecil agar UnitController siap
+        
+        // Kasih delay dikit pas start biar gak kaget
         Invoke(nameof(StartNextWave), 1f); 
     }
 
     private void Update()
     {
-        // 1. Logika Grace Period (Istirahat antar Wave)
+        // Kalau lagi fase istirahat antar wave
         if (isWaitingForNextWave)
         {
             HandleGracePeriod();
             return;
         }
 
-        // 2. Logika Cek Musuh Habis 
-        // [FIX] Ditambah syarat: && finishedSpawning
-        // Artinya: Cuma boleh cek menang kalau SEMUA musuh wave ini sudah keluar dari kandang
+        // Cek kondisi wave kelar (musuh abis & spawn beres)
         if (isWaveActive && !isWaitingForNextWave && finishedSpawning)
         {
             CheckIfWaveCleared();
@@ -66,10 +61,10 @@ public class WaveManager : MonoBehaviour
 
         if (waveTextUI != null)
         {
-            // Tampilkan timer bulat ke atas
             waveTextUI.text = $"NEXT WAVE IN: {Mathf.Ceil(waveTimer)}\n[SPACE] TO SKIP";
         }
 
+        // Cheat skip wave buat testing cepet (atau fitur gameplay)
         if (Input.GetKeyDown(KeyCode.Space))
         {
             waveTimer = 0;
@@ -84,22 +79,20 @@ public class WaveManager : MonoBehaviour
 
     void CheckIfWaveCleared()
     {
-        // Bersihkan list dari musuh yang sudah mati
+        // Cleanup list unit biar gak ngecek object null
         unitSpawner.unitsInGame.RemoveAll(item => item == null || !item.activeInHierarchy);
 
-        // Jika musuh benar-benar habis (0)
         if (unitSpawner.unitsInGame.Count == 0)
         {
             isWaveActive = false;
             
-            // Cek tamat
+            // Cek apakah ini wave terakhir
             if (currentWaveIndex >= waves.Count)
             {
                 ShowVictory();
                 return;
             }
 
-            // Masuk mode istirahat
             StartGracePeriod();
         }
     }
@@ -107,14 +100,9 @@ public class WaveManager : MonoBehaviour
     void StartGracePeriod()
     {
         isWaitingForNextWave = true;
-        finishedSpawning = false; // Reset status spawn untuk wave berikutnya
+        finishedSpawning = false; 
         waveTimer = timeBetweenWaves;
         if (waveTextUI != null) waveTextUI.gameObject.SetActive(true);
-
-        if (MusicManager.instance != null)
-        {
-            MusicManager.instance.PlayCalmMusic();
-        }
     }
 
     void StartNextWave()
@@ -128,39 +116,33 @@ public class WaveManager : MonoBehaviour
     IEnumerator ProcessWave(WaveData wave)
     {
         isWaveActive = true; 
-        finishedSpawning = false; // [FIX] Pastikan false saat mulai
+        finishedSpawning = false;
 
-        if (MusicManager.instance != null)
-        {
-            MusicManager.instance.PlayBattleMusic();
-        }
-
-        // UI Judul Wave
+        // Show UI nama wave sebentar
         if (waveTextUI != null)
         {
             waveTextUI.text = wave.waveName;
             waveTextUI.gameObject.SetActive(true);
             yield return new WaitForSeconds(2f);
             
-            // [FIX] Cek lagi, kalau sudah masuk grace period (di-skip player), jangan matikan UI timer
+            // Hide UI kalau player gak lagi nunggu (cegah bug UI numpuk)
             if (!isWaitingForNextWave) 
             {
                 waveTextUI.gameObject.SetActive(false);
             }
         }
 
-        Debug.Log($"[Wave System] Memulai: {wave.waveName} - Target Musuh: {wave.enemyCount}");
-
+        // Mulai spawning musuh satu per satu
         for (int i = 0; i < wave.enemyCount; i++)
         {
-            // [FIX] Cek isWaveActive. Jika game over/reset, stop spawn
             if (!isWaveActive) yield break; 
 
-            unitSpawner.SpawnSingleUnit();
+            // Panggil spawner dengan parameter prefab musuh spesifik
+            unitSpawner.SpawnSingleUnit(wave.enemyPrefab);
+            
             yield return new WaitForSeconds(spawnInterval);
         }
         
-        // [FIX] Nah, baru sekarang boleh bilang "Spawn Selesai"
         finishedSpawning = true;
         currentWaveIndex++;
     }
@@ -169,13 +151,9 @@ public class WaveManager : MonoBehaviour
     {
         if (waveTextUI != null)
         {
-            waveTextUI.gameObject.SetActive(false);
+            waveTextUI.text = "VICTORY!";
+            waveTextUI.gameObject.SetActive(true);
         }
-        if (VictoryManager.instance != null)
-        {
-            VictoryManager.instance.ShowVictory();
-        }
-        Debug.Log("All waves completed.");
         this.enabled = false;
     }
 }

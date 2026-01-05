@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class FloatingHealthBar : HealthBar
 {
     [SerializeField] GameObject target;
-    [SerializeField] Vector3 offset;
+    public Vector3 offset;
     private void Update()
     {
         transform.rotation = Camera.main.transform.rotation;

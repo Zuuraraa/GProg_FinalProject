@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] GameObject enemyPrefab;
+
     [Header("Dependencies")]
     [SerializeField] UnitController unitSpawner;
     [SerializeField] TextMeshProUGUI waveTextUI;
@@ -14,15 +17,22 @@ public class WaveManager : MonoBehaviour
     [SerializeField] float spawnInterval = 1f;
     [SerializeField] List<WaveData> waves;
 
+
     // Class buat nyimpen data per wave biar rapi di inspector
     [System.Serializable]
     public class WaveData
     {
         public string waveName;
-        public int enemyCount;
-        
         // Slot buat masukin prefab musuh (Rat, Cobra, Bee, dll)
-        public GameObject enemyPrefab; 
+        public List<EnemyToSpawn> enemyList; 
+    }
+
+    [Serializable]
+
+    public class EnemyToSpawn
+    {
+        public EnemyStatistics stats;
+        public int count;
     }
 
     private int currentWaveIndex = 0;
@@ -132,16 +142,21 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        // Mulai spawning musuh satu per satu
-        for (int i = 0; i < wave.enemyCount; i++)
-        {
-            if (!isWaveActive) yield break; 
 
-            // Panggil spawner dengan parameter prefab musuh spesifik
-            unitSpawner.SpawnSingleUnit(wave.enemyPrefab);
-            
-            yield return new WaitForSeconds(spawnInterval);
+        // Mulai spawning musuh satu per satu
+        foreach (EnemyToSpawn e in wave.enemyList)
+        {
+            for (int i = 0; i < e.count; i++)
+            {
+                if (!isWaveActive) yield break;
+
+                // Panggil spawner dengan parameter prefab musuh spesifik
+                unitSpawner.SpawnSingleUnit(e.stats);
+
+                yield return new WaitForSeconds(spawnInterval);
+            }
         }
+        
         
         finishedSpawning = true;
         currentWaveIndex++;

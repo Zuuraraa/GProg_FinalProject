@@ -1,7 +1,3 @@
-using Mono.Cecil.Cil;
-using UnityEngine;
-using UnityEngine.UI;
-
 public class HealthBar : StatusBar
 {
     public override void UpdateValue(float value, float maxValue)

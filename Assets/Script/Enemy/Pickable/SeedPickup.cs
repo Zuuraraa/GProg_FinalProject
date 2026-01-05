@@ -15,6 +15,7 @@ public class SeedPickup : Pickable
 
     protected override void CollisionResult(Player player)
     {
+        Debug.Log((SeedPacket)(player.GetItem(seedType == SeedType.Corn ? 3 : 4)));
         SeedPacket seedPacket = ((SeedPacket)(player.GetItem(seedType == SeedType.Corn ? 3 : 4)));
         seedPacket.IncrementPacketCount(1);
         gameObject.SetActive(false);

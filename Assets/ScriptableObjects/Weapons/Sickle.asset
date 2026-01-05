@@ -15,8 +15,9 @@ MonoBehaviour:
   canHoldFire: 0
   sprite: {fileID: -554010742415259762, guid: 82e0f013fd286264eb6131fd43af34fe, type: 3}
   description: A short melee weapon that attacks in an arc.
-  damageByLevel: 050000000a0000000f000000
-  startSpeedByLevel: 040000000200000001000000
-  attackSpeedByLevel: 040000000200000001000000
-  endSpeedByLevel: 040000000200000001000000
+  damageByLevel: 0a0000000f00000014000000
+  startSpeedByLevel: 040000000300000002000000
+  attackSpeedByLevel: 040000000400000002000000
+  endSpeedByLevel: 040000000300000002000000
   animationType: 0
+  baseFrameCount: 60

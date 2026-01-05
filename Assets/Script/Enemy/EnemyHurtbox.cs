@@ -21,7 +21,10 @@ public class EnemyHurtbox : MonoBehaviour
         {
             Character character = collision.tag == "Player" ? collision.GetComponent<Player>() : collision.GetComponent<HomeBase>();
             character.TakeDamage(stats.damage);
-            StartCoroutine(AttackDelay());
+            if (enabled && gameObject.activeInHierarchy)
+            {
+                StartCoroutine(AttackDelay());
+            }
         }
     }
 

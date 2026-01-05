@@ -48,7 +48,7 @@ public class HomeBase : Character
     {
         foreach (HomeBase homeBase in homeBaseList)
         {
-            homeBase.TakeDamage(-(homeBase.stats.maxHP / 10));
+            homeBase.TakeDamage(-(int)((float)(homeBase.stats.maxHP) * 0.02));
         }
     }
 }

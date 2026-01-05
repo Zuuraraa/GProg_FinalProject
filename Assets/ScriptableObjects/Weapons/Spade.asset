@@ -16,7 +16,8 @@ MonoBehaviour:
   sprite: {fileID: 8549692267302808760, guid: 82e0f013fd286264eb6131fd43af34fe, type: 3}
   description: A long melee weapon that has a thrust attack.
   damageByLevel: 0a000000140000001e000000
-  startSpeedByLevel: 080000000600000004000000
-  attackSpeedByLevel: 080000000600000004000000
+  startSpeedByLevel: 080000000700000006000000
+  attackSpeedByLevel: 080000000700000006000000
   endSpeedByLevel: 080000000600000004000000
   animationType: 1
+  baseFrameCount: 60

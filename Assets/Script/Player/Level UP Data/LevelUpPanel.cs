@@ -39,8 +39,8 @@ public class LevelUpPanel : MonoBehaviour
         do
         {
             upgradeType = (LevelUpType)Random.Range(0, 5);
-        } while (upgradeType == ignore || !CheckIfWeaponIsMaxLevel(upgradeType));
-
+            Debug.Log(upgradeType);
+        } while (upgradeType == ignore || CheckIfWeaponIsMaxLevel(upgradeType));
         instance.levelUpCards[index].SetLevelUpType(upgradeType);
         return upgradeType;
     }
@@ -49,7 +49,7 @@ public class LevelUpPanel : MonoBehaviour
     {
         if ((int)upgradeType >= 2)
         {
-            return ((Weapon)(Player.instance.GetItem((int)upgradeType - 2))).level < 3;
+            return ((Weapon)(Player.instance.GetItem((int)upgradeType - 2))).level >= 3;
         }
         else
         {

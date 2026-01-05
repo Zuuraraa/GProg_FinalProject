@@ -32,4 +32,14 @@ public class GameOverManager : MonoBehaviour
         Time.timeScale = 1f; 
         SceneManager.LoadScene("MainMenu"); 
     }
+
+    public void Show()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+
+        Time.timeScale = 0f; 
+    }
 }

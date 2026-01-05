@@ -19,3 +19,4 @@ MonoBehaviour:
   startSpeedByLevel: 040000000200000001000000
   attackSpeedByLevel: 040000000200000001000000
   endSpeedByLevel: 040000000200000001000000
+  animationType: 0

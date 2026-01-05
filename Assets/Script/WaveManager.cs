@@ -169,8 +169,11 @@ public class WaveManager : MonoBehaviour
     {
         if (waveTextUI != null)
         {
-            waveTextUI.text = "VICTORY!";
-            waveTextUI.gameObject.SetActive(true);
+            waveTextUI.gameObject.SetActive(false);
+        }
+        if (VictoryManager.instance != null)
+        {
+            VictoryManager.instance.ShowVictory();
         }
         Debug.Log("All waves completed.");
         this.enabled = false;

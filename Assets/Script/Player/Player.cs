@@ -56,10 +56,11 @@ public class Player : Character
             animator.SetBool("IsDead", true); 
         }
 
-        // if (GameOverUI.instance != null)
-        // {
-        //     GameOverUI.instance.Show();
-        // }
+        if (GameOverManager.instance != null)
+        {
+            GameOverManager.instance.Show();
+        }
+
         if (action != null)
         {
             action.enabled = false; 

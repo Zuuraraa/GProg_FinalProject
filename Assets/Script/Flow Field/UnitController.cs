@@ -5,8 +5,8 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     [Header("Unit Settings")]
-    public GameObject unitPrefab;
     public float moveSpeed;
+    // Stats default (opsional, better diatur di scriptable object prefab masing-masing)
     public EnemyStatistics stats;
 
     [Header("Grid References")]
@@ -14,14 +14,11 @@ public class UnitController : MonoBehaviour
     [SerializeField] GridController playerTrackingGridController;
 
     [Header("Spawn Configuration")]
-    // Titik-titik spawn area (drag dari hierarchy).
-    // Pastikan titik ini ada di area aman (bukan sungai/tembok).
+    // Titik spawn di map
     public List<Transform> spawnPoints; 
-    
-    // Radius random biar spawn-nya nyebar natural
     public float spawnRadius = 3f; 
 
-    // List tracking unit aktif untuk kebutuhan WaveManager
+    // List tracking unit aktif untuk dicek WaveManager
     public List<GameObject> unitsInGame;
 
     private void Awake()
@@ -31,11 +28,12 @@ public class UnitController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Bersihin list kalau ada unit yang udah hancur/null biar gak error logic
+        // Hapus referensi unit yang udah mati biar memory aman
         unitsInGame.RemoveAll(item => item == null);
 
         if (homeBaseTrackingGridController.curFlowField == null || playerTrackingGridController.curFlowField == null) return;
         
+        // Logic pathfinding flow field
         foreach (GameObject unit in unitsInGame)
         {
             if (unit == null) continue;
@@ -43,13 +41,12 @@ public class UnitController : MonoBehaviour
             Enemy enemyScript = unit.GetComponent<Enemy>();
             if (enemyScript == null) continue;
 
-            // Logika pathfinding: Prioritas kejar Player kalau aggro, kalau enggak ya serang Base
+            // Tentukan target: Player (kalau aggro) atau Base
             GridController gridController = enemyScript.aggro.hasAggro ? playerTrackingGridController : homeBaseTrackingGridController;
             Cell cellBelow = gridController.curFlowField.GetCellFromWorldPos(unit.transform.position);
             
             if (cellBelow != null)
             {
-                // Gerakkan unit via Rigidbody
                 Vector3 moveDirection = new Vector3(cellBelow.bestDirection.Vector.x, cellBelow.bestDirection.Vector.y, 0);
                 Rigidbody2D unitRB = unit.GetComponent<Rigidbody2D>();
                 if(unitRB != null) unitRB.linearVelocity = moveDirection * moveSpeed;
@@ -57,37 +54,40 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    // Dipanggil WaveManager saat jam spawn tiba
-    public void SpawnSingleUnit()
+    // Fungsi spawn dipanggil oleh WaveManager
+    // Parameter 'prefabToSpawn' ditentukan dari settingan Wave di inspector
+    public void SpawnSingleUnit(GameObject prefabToSpawn)
     {
-        // Validasi: Jangan sampe lupa pasang spawn point di inspector
         if (spawnPoints == null || spawnPoints.Count == 0)
         {
-            Debug.LogWarning("Spawn Points kosong! Cek inspector UnitController.");
+            Debug.LogWarning("Spawn Points belum diset di inspector!");
+            return;
+        }
+
+        // Safety check kalau prefab lupa dimasukin di WaveManager
+        if (prefabToSpawn == null)
+        {
+            Debug.LogError("Prefab musuh kosong (null). Cek settingan WaveManager.");
             return;
         }
 
         Vector3 spawnPos = Vector3.zero;
         
-        // Pilih area spawn secara acak biar variatif
+        // Pilih lokasi spawn random + offset radius biar natural
         Transform randomRegion = spawnPoints[Random.Range(0, spawnPoints.Count)];
-
-        // Tambah offset random dalam lingkaran radius biar gak numpuk di satu titik
         Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
         spawnPos = randomRegion.position + new Vector3(randomOffset.x, randomOffset.y, 0);
 
-        // Instantiate musuh
-        GameObject newUnit = Instantiate(unitPrefab, spawnPos, Quaternion.identity);
-        Enemy enemyScript = newUnit.GetComponent<Enemy>();
+        GameObject newUnit = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
         
-        // Set stat awal musuh (HP, Damage, dll)
-        if(enemyScript != null) enemyScript.stats = stats;
-        
+        // Setup parent biar hierarchy rapi
         newUnit.transform.parent = transform;
+        
+        // Masukin ke list buat ditrack WaveManager
         unitsInGame.Add(newUnit);
     }
 
-    // Fungsi helper untuk reset game state (dipanggil saat game over/restart)
+    // Bersihin unit pas restart game
     private void DestroyUnits()
     {
         foreach (GameObject go in unitsInGame) if (go != null) Destroy(go);

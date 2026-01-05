@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class HomeBase : Character
 {
+    static List<HomeBase> homeBaseList;
     [SerializeField] TilemapRenderer graphics;
     [SerializeField] HomeBaseTrackingGridController controller;
 
@@ -40,5 +41,13 @@ public class HomeBase : Character
         boxCollider.enabled = false;
         gameObject.SetActive(false);
         controller.RecalculateFLowField();
+    }
+
+    public static void HealSomeHP()
+    {
+        foreach (HomeBase homeBase in homeBaseList)
+        {
+            homeBase.TakeDamage(-(homeBase.stats.maxHP / 10));
+        }
     }
 }

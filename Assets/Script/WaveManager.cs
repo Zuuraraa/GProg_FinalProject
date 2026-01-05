@@ -109,6 +109,7 @@ public class WaveManager : MonoBehaviour
 
     void StartGracePeriod()
     {
+        HomeBase.HealSomeHP();
         isWaitingForNextWave = true;
         finishedSpawning = false; 
         waveTimer = timeBetweenWaves;

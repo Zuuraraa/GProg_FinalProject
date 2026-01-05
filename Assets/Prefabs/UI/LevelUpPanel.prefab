@@ -1432,12 +1432,6 @@ MonoBehaviour:
   levelUpCards:
   - {fileID: 3684978162074969100}
   - {fileID: 5556549461242476674}
-  levelData:
-    hpLevel: 0
-    speedLevel: 0
-    sickleLevel: 0
-    spadeLevel: -1
-    wateringCanLevel: -1
 --- !u!1 &3812677188615359479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,6 +2843,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3435512662102382403}
     m_Modifications:
+    - target: {fileID: 1343334048254147577, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1343334048254147577, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6288224735816577132, guid: 5790de128a1a0b840bdbaa58d47979e9, type: 3}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonSound, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6970165555947050041, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
       propertyPath: m_Name
       value: UpgradeCard (2)
@@ -2962,6 +2992,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3435512662102382403}
     m_Modifications:
+    - target: {fileID: 1343334048254147577, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1343334048254147577, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6288224735816577132, guid: 5790de128a1a0b840bdbaa58d47979e9, type: 3}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ButtonSound, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907467173591335367, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6970165555947050041, guid: d1581f71368cb604f82f891abe5bae46, type: 3}
       propertyPath: m_Name
       value: UpgradeCard (1)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 public class PlayerAction : MonoBehaviour
 {
@@ -50,6 +51,11 @@ public class PlayerAction : MonoBehaviour
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             FaceMouse();
+        }
+
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
         }
 
         // currentItem.CheckUse();

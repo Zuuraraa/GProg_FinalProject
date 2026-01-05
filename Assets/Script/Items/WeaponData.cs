@@ -17,4 +17,6 @@ public class WeaponData : ScriptableObject
 
     [Header("Visuals")]
     public int animationType;
+
+    public int baseFrameCount = 60;
 }

@@ -51,6 +51,12 @@ public abstract class Weapon : Item
         if (Player.instance != null && Player.instance.animator != null)
         {
             Player.instance.animator.SetInteger("WeaponType", info.animationType);
+            
+            int currentTotalFrames = startSpeed + attackSpeed + endSpeed;
+            if (currentTotalFrames <= 0) currentTotalFrames = 1;
+            float speedMultiplier = (float)info.baseFrameCount / currentTotalFrames;
+            Player.instance.animator.SetFloat("AttackSpeedMult", speedMultiplier);
+
             Player.instance.animator.SetTrigger("Attack");
         }
 

@@ -1,6 +1,6 @@
 public class HealthPickup : Pickable
 {
-    int value = 10;
+    int value = 25;
     protected override void CollisionResult(Player player)
     {
         player.TakeDamage(-value);
@@ -9,7 +9,7 @@ public class HealthPickup : Pickable
     public override void Reset()
     {
         base.Reset();
-        value = 10;
+        value = 25;
     }
 
 }

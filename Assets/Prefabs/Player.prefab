@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: b4b0b7e6c3a676843b8b96bfafd11289, type: 2}
   currentHP: 0
+  animator: {fileID: 0}
   healthBar: {fileID: 0}
   action: {fileID: 7971122154629318220}
   maxHP: 0
@@ -195,6 +196,9 @@ MonoBehaviour:
   xpBar: {fileID: 0}
   xp: 0
   level: 0
+  audioSource: {fileID: 0}
+  hitSound: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!114 &7783983846402270250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowMultiplier: 0.5
+  audioSource: {fileID: 0}
+  footstepSound: {fileID: 0}
   player: {fileID: 8747671311515705933}
   slowTilemap: {fileID: 0}
 --- !u!114 &7971122154629318220
@@ -228,6 +234,8 @@ MonoBehaviour:
   - {fileID: 1603953128868813287}
   - {fileID: 8251245586550572957}
   - {fileID: 1847629140426550435}
+  audioSource: {fileID: 0}
+  equipSounds: []
   items:
   - {fileID: 6308470147361151839}
   - {fileID: 6497511221979145600}
@@ -840,6 +848,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
     - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -852,8 +876,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1534983324194023412}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -890,6 +926,10 @@ PrefabInstance:
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6721006228150433382, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_Name
@@ -947,7 +987,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.5, y: 4}
+  m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!4 &5342558237923675988 stripped
 Transform:
@@ -974,6 +1014,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 7080888303638426441}
     m_Modifications:
     - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 158189879871279212, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -995,15 +1051,15 @@ PrefabInstance:
       objectReference: {fileID: 2292181426900096805}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1011,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1117,7 +1173,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1.5
+  m_Radius: 0.5
 --- !u!4 &5153077032878829963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2073581529110847627, guid: 890bdd2834b05794cb5e4db561dd9a3a, type: 3}

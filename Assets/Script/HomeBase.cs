@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class HomeBase : Character
 {
-    static List<HomeBase> homeBaseList;
+    public static List<HomeBase> homeBaseList = new List<HomeBase>();
     [SerializeField] TilemapRenderer graphics;
     [SerializeField] HomeBaseTrackingGridController controller;
 
@@ -18,6 +18,7 @@ public class HomeBase : Character
     {
         base.Awake();
         boxCollider = GetComponent<BoxCollider2D>();
+        homeBaseList.Add(this);
     }
     protected override void OnDamage(string originCode = "")
     {

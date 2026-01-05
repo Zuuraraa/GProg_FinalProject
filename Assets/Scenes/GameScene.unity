@@ -151,36 +151,15 @@ MonoBehaviour:
   unitSpawner: {fileID: 2043692564}
   waveTextUI: {fileID: 1835144592}
   timeBetweenWaves: 10
-  spawnInterval: 2
+  spawnInterval: 1
   waves:
   - waveName: 'Wave 1 '
-    enemyCount: 5
+    enemyCount: 7
     enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
   - waveName: Wave 2
     enemyCount: 15
     enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
-  - waveName: Wave 3
-    enemyCount: 25
-    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
-  - waveName: Wave 4
-    enemyCount: 15
-    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
-  - waveName: Wave 5
-    enemyCount: 30
-    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
-  - waveName: Wave 6
-    enemyCount: 28
-    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
-  - waveName: Wave 7
-    enemyCount: 15
-    enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
-  - waveName: Wave 8
-    enemyCount: 50
-    enemyPrefab: {fileID: 1240102694420023210, guid: cda32d81b4b6ac14fb4a5b32aa1572ee, type: 3}
-  - waveName: Wave 9
-    enemyCount: 35
-    enemyPrefab: {fileID: 1240102694420023210, guid: 1a3c89a75f5fdc2478d0de312b895cad, type: 3}
-  - waveName: Wave 10
+  - waveName: Wave 3 - FINAL
     enemyCount: 25
     enemyPrefab: {fileID: 1240102694420023210, guid: d1da9dec9f2aaa0478ceca546b27bec5, type: 3}
 --- !u!4 &59972611

@@ -66,8 +66,6 @@ public class Player : Character
             action.enabled = false; 
         }
         // throw new System.NotImplementedException();
-        this.enabled = false;
-        GetComponent<Collider2D>().enabled = false;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -75,6 +73,9 @@ public class Player : Character
             rb.velocity = Vector2.zero; 
             rb.simulated = false; 
         }
+
+        this.enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     internal void GainXp(int value)
